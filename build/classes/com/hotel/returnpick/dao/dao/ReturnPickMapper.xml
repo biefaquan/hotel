@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.returnpick.dao.dao.ReturnPickMapper">
+<resultMap type="ReturnPick" id="ReturnPickResultMap" autoMapping="true">
+	<id property="rp_id" column="rp_id"/>
+	<association property="d" javaType="Dept">
+		<id property="d_id" column="d_id"/>
+	</association>
+	<association property="sh" javaType="StoreHouse">
+		<id property="sh_id" column="sh_id"/>
+	</association>
+	<association property="u" javaType="User">
+		<id property="u_id" column="u_id"/>
+	</association>
+	<collection property="rpdlist" ofType="ReturnPickDetail">
+		<id property="rpd_id" column="rpd_id"/>
+		<association property="g" javaType="Goods">
+			<id property="g_id" column="g_id"/>
+		</association>
+	</collection>
+</resultMap>
+  <insert id="add" parameterType="ReturnPick" useGeneratedKeys="true" keyProperty="rp_id">
+  	insert into returnpick values(null,#{d.d_id},#{sh.sh_id},#{u.u_id},#{rp_remark},#{rp_instruction},#{rp_date},#{rp_money},#{rp_uid})
+  </insert>
+  <select id="queryAllByPage" resultMap="ReturnPickResultMap">
+  	select * from returnpick rp,dept d,storehouse sh,user u where rp.d_id=d.d_id and rp.sh_id=sh.sh_id and rp.u_id=u.u_id limit #{pageNo},#{pageSize}
+  </select>
+  <select id="count"  resultType="int">
+  	select count(*) from returnpick
+  </select>
+  <select id="queryById" resultMap="ReturnPickResultMap">
+  	select * from returnpick rp,returnpickdetail rpd,goods g,dept d,storehouse sh,user u where rp.rp_id=rpd.rp_id and rpd.g_id=g.g_id and rp.d_id=d.d_id and rp.sh_id=sh.sh_id and rp.u_id=u.u_id and rp.rp_id=#{rp_id}
+  </select>
+  <!-- 条件查询  领料退货单查询 -->
+  <select id="queryByReason" resultMap="ReturnPickResultMap">
+  	select * from returnpick rp,dept d,storehouse sh,user u where rp.d_id=d.d_id and rp.sh_id=sh.sh_id and rp.u_id=u.u_id
+  	<if test="sh_id!=0">
+  		and sh.sh_id=#{sh_id}
+  	</if>
+  	<if test="u_id!=0">
+  		and u.u_id=#{u_id}
+  	</if>
+  	<if test="startdate!=null">
+  		and rp.rp_date &gt;= #{startdate}
+  	</if>
+  	<if test="enddate!=null">
+  		and rp.rp_date &lt;= #{enddate}
+  	</if>
+  	limit #{pageNo},#{pageSize}
+  </select>
+  <select id="countByReason" resultType="int">
+  	select count(*) from returnpick rp,storehouse sh,user u where rp.sh_id=sh.sh_id and rp.u_id=u.u_id
+  	<if test="sh_id!=0">
+  		and sh.sh_id=#{sh_id}
+  	</if>
+  	<if test="u_id!=0">
+  		and u.u_id=#{u_id}
+  	</if>
+  	<if test="startdate!=null">
+  		and rp.rp_date &gt;= #{startdate}
+  	</if>
+  	<if test="enddate!=null">
+  		and rp.rp_date &lt;= #{enddate}
+  	</if>
+  </select>
+</mapper>

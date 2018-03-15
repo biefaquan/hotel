@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.memberhandle.dao.dao.MemberHandleMapper">
+<resultMap type="MemberHandle" id="MemberHandleResultMap" autoMapping="true">
+	<id property="mh_id" column="mh_id"/>
+	<association property="m" javaType="Member" >
+		<id property="m_id" column="m_id"/>
+		<association property="mt" javaType="MemberType" >
+			<id property="mt_id" column="mt_id"/>
+		</association>
+		<association property="c" javaType="Customer" >
+			<id property="c_id" column="c_id"/>
+		</association>
+	</association>
+	<association property="u" javaType="User" >
+		<id property="u_id" column="u_id"/>
+	</association>
+</resultMap>
+  <insert id="add" parameterType="MemberHandle">
+  	insert into memberhandle values(null,#{m.m_id},#{mh_handle},#{mh_date},#{u.u_id},#{mh_reward})
+  </insert>
+  <select id="queryAllByReason" resultMap="MemberHandleResultMap">
+  	select * from memberhandle mh,member m,membertype mt,customer c,user u where mh.m_id=m.m_id and m.mt_id=mt.mt_id and m.c_id=c.c_id and mh.u_id=u.u_id
+  		<if test="startdate!=null">
+			and mh.mh_date &gt;= #{startdate}
+		</if>
+		<if test="enddate!=null">
+			and mh.mh_date &lt;= #{enddate}
+		</if>
+		<if test="typenum!=null">
+			and m.m_cardnum=#{typenum}
+		</if>
+		limit #{pageNo},#{pageSize}
+  </select>
+  <select id="countByReason" resultType="int">
+  	select count(*) from memberhandle mh,member m where mh.m_id = m.m_id
+		<if test="startdate!=null">
+			and mh.mh_date &gt;= #{startdate}
+		</if>
+		<if test="enddate!=null">
+			and mh.mh_date &lt;= #{enddate}
+		</if>
+		<if test="typenum!=null">
+			and m.m_cardnum=#{typenum}
+		</if>
+  </select>
+</mapper>

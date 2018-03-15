@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.continuelive.dao.dao.ContinueLiveMapper">
+  <insert id="add" parameterType="ContinueLive">
+  	insert into continuelive values(null,#{r.r_id},#{c.c_id},#{cl_typenum},#{cl_source},#{cl_keyway},#{cl_opentime},#{cl_nowtime},#{cl_days},#{cl_paytype},#{cl_money},#{cl_reward},#{u.u_id})
+  </insert>
+</mapper>

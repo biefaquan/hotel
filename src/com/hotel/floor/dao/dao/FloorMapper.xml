@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.floor.dao.dao.FloorMapper">
+  <select id="queryAll" resultType="Floor">
+  	select * from floor 
+  </select>
+  <select id="queryById" parameterType="int" resultType="Floor">
+  	select * from floor where f_id=#{f_id}
+  </select>
+  <insert id="add" parameterType="Floor">
+  	insert into floor values(null,#{f_num})
+  </insert>
+  <update id="update" parameterType="Floor">
+  	update floor set f_num=#{f_num} where f_id=#{f_id}
+  </update>
+  <delete id="delete" parameterType="int">
+  	delete from floor where f_id=#{f_id}
+  </delete>
+</mapper>

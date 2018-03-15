@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.teaminfor.dao.dao.TeamInforMapper">
+<resultMap type="TeamInfor" id="TeamInforResultMap" autoMapping="true">
+	<id property="ti_id" column="ti_id"/>
+	<association property="u" javaType="User">
+		<id property="u_id" column="u_id"/>
+	</association>
+	<collection property="tclist" ofType="TeamCard">
+		<id property="tc_id" column="tc_id"/>
+		<association property="c" javaType="Customer">
+			<id property="c_id" column="c_id"/>
+		</association>
+		<association property="r" javaType="Room">
+			<id property="r_id" column="r_id"/>
+		</association>
+	</collection>
+</resultMap>
+  <insert id="add" parameterType="TeamInfor"  useGeneratedKeys="true" keyProperty="ti_id">
+  insert into teaminfor values(null,#{ti_name},#{ti_leadername},#{ti_leaderphone},#{ti_source},#{ti_typenum},#{ti_opentime},#{ti_days},#{ti_paytype},#{ti_depositfee},#{u.u_id},#{ti_allmoney},#{ti_allroom},#{ti_state})
+  </insert>
+  <select id="queryAll" resultMap="TeamInforResultMap">
+  	select * from teaminfor ti,user u,customer c,room r where ti.u_id=u.u_id and ti.ti_state=1
+  </select>
+  <select id="queryById" resultMap="TeamInforResultMap">
+  	select * from teaminfor ti,user u,customer c,room r where ti.u_id=u.u_id and ti.ti_id=#{ti_id}
+  </select>
+  <update id="updatestate">
+  	update teaminfor set ti_state=#{ti_state} where ti_id=#{ti_id}
+  </update>
+</mapper>

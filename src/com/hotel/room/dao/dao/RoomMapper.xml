@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.room.dao.dao.RoomMapper">
+<resultMap type="Room" id="RoomResultMap" autoMapping="true">
+	<id property="r_id" column="r_id"/>
+	<association property="f" javaType="Floor" >
+		<id property="f_id" column="f_id"/>
+	</association>
+	<association property="rt" javaType="RoomType" >
+		<id property="rt_id" column="rt_id"/>
+	</association>
+</resultMap>
+
+  <insert id="add" parameterType="Room">
+  insert into room values(null,#{r_roomnum},#{f.f_id},#{rt.rt_id},#{r_state})
+  </insert>
+  <select id="queryByID" parameterType="int" resultMap="RoomResultMap">
+  	select * from room r,floor f,roomtype rt where r.f_id = f.f_id and r.rt_id = rt.rt_id and r_id = #{id}
+  </select>
+  <select id="queryByAll" resultMap="RoomResultMap">
+  	select * from room r,floor f,roomtype rt where r.f_id = f.f_id and r.rt_id = rt.rt_id limit #{pageNo},#{pageSize}
+  </select>
+  <select id="queryAll" resultMap="RoomResultMap">
+  	select * from room r,floor f,roomtype rt where r.f_id = f.f_id and r.rt_id = rt.rt_id order by r.r_roomnum
+  </select>
+  <select id="queryAllByRt_id" parameterType="int" resultMap="RoomResultMap">
+  	select * from room r,floor f,roomtype rt where r.f_id = f.f_id and r.rt_id = rt.rt_id and r.rt_id=#{rt_id}
+  </select>
+  <select id="count" resultType="int">
+  	select count(*) from room 
+  </select>
+  <update id="update" parameterType="Room">
+  	update room set r_roomnum=#{r_roomnum},f_id=#{f.f_id},rt_id=#{rt.rt_id},r_state=#{r_state} where r_id=#{r_id}
+  </update>
+  <delete id="delete" parameterType="int">
+  	delete from room where r_id = #{id};
+  </delete>
+  <!-- 查询空房间 -->
+  <select id="queryAllByRt_id1" parameterType="int" resultMap="RoomResultMap">
+  	select * from room r,floor f,roomtype rt where r.f_id = f.f_id and r.rt_id = rt.rt_id and r.r_state=0 and r.rt_id=#{rt_id}
+  </select>
+  <!-- 房态图条件查询 -->
+  <select id="queryAllByReason" resultMap="RoomResultMap">
+  	select * from room r,floor f,roomtype rt where r.f_id = f.f_id and r.rt_id = rt.rt_id 
+  	<if test="f_id!=-10">
+  		and f.f_id=#{f_id}
+  	</if>
+  	<if test="rt_id!=-10">
+  		and rt.rt_id=#{rt_id}
+  	</if>
+  	<if test="r_state!=-10">
+  		and r.r_state=#{r_state}
+  	</if>
+  	<if test="r_roomnum!=null">
+  		and r.r_roomnum=#{r_roomnum}
+  	</if>
+  	order by r.r_roomnum
+  </select>
+</mapper>

@@ -1,0 +1,53 @@
+/* ::::: http://jcstock.jdd365.net/Styles/main.css ::::: */
+
+body { font-size: 12px; margin: 0px; padding: 0px; }
+ul, li, p, span, h1, h2, h3, h4, dd, dl { margin: 0px; padding: 0px; }
+li { list-style-type: none; }
+img { border: medium none; }
+input, button, select, textarea { color: rgb(51, 51, 51); outline: medium none; padding-left: 5px; }
+input:hover, select:hover, textarea:hover { border-color: rgb(102, 175, 233) ! important; outline: 0px none; box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(102, 175, 233, 0.6); }
+.clrfix::after { clear: both; content: "."; display: block; height: 0px; visibility: hidden; }
+.clearfix::after { clear: both; content: " "; display: block; font-size: 0px; height: 0px; visibility: hidden; }
+table { width: 100%; border-top: 0px solid rgb(221, 221, 221); border-left: 1px solid rgb(221, 221, 221); float: left; }
+table th { font-size: 14px; border-bottom: 1px solid rgb(7, 137, 190); border-right: 1px solid rgb(102, 213, 255); height: 32px; background: rgb(0, 173, 239) none repeat scroll 0% 0%; color: rgb(255, 255, 255); }
+table tr { color: rgb(51, 51, 51); }
+table tr:hover { background: rgb(208, 242, 255) none repeat scroll 0% 0%; }
+table tr td { border-bottom: 1px solid rgb(221, 221, 221); border-right: 1px solid rgb(221, 221, 221); line-height: 28px; text-align: center; padding: 2px 5px; }
+.main { width: 98%; margin-left: 0px; display: inline; float: left; margin-bottom: 20px; position: relative; }
+.fote { width: 100%; float: right; margin-top: 10px; }
+.fote .fl { float: left; }
+.fote .fl input { border: 1px solid rgb(204, 204, 204); width: 200px; height: 22px; line-height: 18px; float: left; }
+.fote label { padding-left: 0px; float: left; line-height: 26px; }
+.fote .fr { float: right; }
+h1.titles { float: left; border-bottom: 0px solid rgb(7, 136, 189); font-size: 20px; padding: 10px 0px 0px; line-height: 40px; width: 200px; }
+.foot_table { background: rgb(249, 244, 210) none repeat scroll 0% 0%; border: 1px solid rgb(221, 221, 221); margin-top: -1px; float: left; width: 100%; height: 32px; line-height: 32px; margin-left: -1px; }
+.foot_table td { border: 0px none; background: rgb(249, 244, 210) none repeat scroll 0% 0%; text-align: right; color: rgb(255, 0, 0); font-weight: bold; font-size: 14px; }
+.bus_add { font-size: 12px ! important; color: rgb(185, 115, 1) ! important; cursor: pointer; height: 30px ! important; line-height: 30px ! important; margin-left: 10px; font-weight: bold; background: transparent url('/hotel/img/roomrack/button.jpg') no-repeat scroll 0px -43px ! important; width: 82px ! important; text-align: center; border: 0px none ! important; padding: 0px ! important; }
+.bus_add:hover { outline: 0px none; box-shadow: none; background: transparent url('/hotel/img/roomrack/button_hover.jpg') no-repeat scroll 0px -43px ! important; }
+.bus_add:active { background: transparent url('/hotel/img/roomrack/button.jpg') no-repeat scroll 0px -43px ! important; }
+.absult { float: right; margin-top: 15px; }
+.absult input { border: 1px solid rgb(204, 204, 204); width: 120px; height: 22px; line-height: 18px; float: left; }
+.absult label { padding-left: 15px; float: left; line-height: 24px; }
+.absult p { color: rgb(255, 0, 0); font-weight: bold; float: left; display: block; font-size: 16px; line-height: 24px; }
+ul.in { float: left; font-size: 12px; color: rgb(51, 51, 51); border: 1px solid rgb(204, 204, 204); padding: 10px 10px 0px; background: rgb(238, 238, 238) none repeat scroll 0% 0%; margin-bottom: 10px; }
+ul.in li { width: 280px; float: left; margin-right: 10px; margin-bottom: 10px; height: 24px; }
+ul.in label { float: left; line-height: 24px; padding-right: 5px; width: 70px; text-align: right; }
+ul.in input, ul.in select, ul.in textarea { border: 1px solid rgb(204, 204, 204); padding-left: 5px; padding-right: 0px; font-size: 12px; font-family: "Hiragino Sans GB","Microsoft YaHei",黑体,宋体,sans-serif; color: rgb(0, 0, 0); float: left; }
+ul.in input { width: 160px; height: 22px; line-height: 22px; }
+ul.in select { padding: 0px; height: 26px; line-height: 26px; width: 168px; }
+ul.in textarea { height: 22px; line-height: 18px; width: 450px; resize: none; }
+.rit { width: 100%; float: left; }
+.rit table.in th { border-right: 0px none ! important; }
+.rit .in_goods { height: 190px; overflow-y: scroll; width: 100%; float: left; position: relative; }
+.rit .in_goods table td { padding: 0px ! important; }
+.rit .in_goods table tr:hover { background: transparent none repeat scroll 0% 0%; }
+.rit .in_goods input { border: 1px solid rgb(204, 204, 204); width: 80%; height: 18px; margin: 3px 0px; text-align: center; }
+input.rili { background: transparent url('/hotel/img/roomrack/rili.jpg') no-repeat scroll 94% center; text-align: left ! important; }
+input.search { background: rgb(255, 255, 255) url('search.jpg') no-repeat scroll 94% center; text-align: left ! important; }
+.seal { position: absolute; top: 42px; right: 20px; height: 100px; width: 100px; }
+.main { position: relative; }
+/* ::::: http://jcstock.jdd365.net/Styles/jquery.datetimepicker.css ::::: */
+
+.xdsoft_noselect::-moz-selection { background: transparent none repeat scroll 0% 0%; }
+/* ::::: http://jcstock.jdd365.net/Styles/jquery.autocomplete.css ::::: */
+

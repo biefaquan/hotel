@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<settings>
+    <!-- 列的映射级别 -->
+    <setting name="autoMappingBehavior" value="FULL"/>
+  </settings>
+<typeAliases>
+	<package name="com.hotel"/>
+</typeAliases>
+  <mappers>
+  </mappers>
+</configuration>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.moneydetail.dao.dao.MoneyDetailMapper">
+  <insert id="add" parameterType="MoneyDetail">
+  	insert into moneydetail values(null,#{md_roomnum},#{md_type},#{md_paytype},#{md_money},#{md_name},#{md_starttime},#{md_reward})
+  </insert>
+  <select id="queryAllByReason" resultType="MoneyDetail">
+  	select * from moneydetail where 1=1
+  		<if test="starttime!=null">
+			and md_starttime &gt;= #{starttime}
+		</if>
+		<if test="endtime!=null">
+			and md_starttime &lt;=#{endtime}
+		</if>
+		<if test="type!='全部'">
+			and md_type=#{type}
+		</if>
+		<if test="paytype!='全部'">
+			and md_paytype=#{paytype}
+		</if>
+		limit #{pageNo},#{pageSize}
+  </select>
+  <select id="countByReason" resultType="int">
+  	select count(*) from moneydetail where 1=1
+  		<if test="starttime!=null">
+			and md_starttime &gt;= #{starttime}
+		</if>
+		<if test="endtime!=null">
+			and md_starttime &lt;=#{endtime}
+		</if>
+		<if test="type!='全部'">
+			and md_type=#{type}
+		</if>
+		<if test="paytype!='全部'">
+			and md_paytype=#{paytype}
+		</if>
+  </select>
+</mapper>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.returnlist.dao.dao.ReturnListMapper">
+<resultMap type="ReturnList" id="ReturnListResultMap" autoMapping="true">
+	<id property="rl_id" column="rl_id"/>
+	<association property="s" javaType="Supplier">
+		<id property="s_id" column="s_id"/>
+	</association>
+	<association property="sh" javaType="StoreHouse">
+		<id property="sh_id" column="sh_id"/>
+	</association>
+	<association property="u" javaType="User">
+		<id property="u_id" column="u_id"/>
+	</association>
+	<collection property="rdlist" ofType="ReturnDetail">
+		<id property="rd_id" column="rd_id"/>
+		<association property="g" javaType="Goods">
+			<id property="g_id" column="g_id"/>
+		</association>
+	</collection>
+</resultMap>
+  <insert id="add" parameterType="ReturnList" useGeneratedKeys="true" keyProperty="rl_id">
+  	insert into returnlist values(null,#{s.s_id},#{sh.sh_id},#{u.u_id},#{rl_remark},#{rl_instruction},#{rl_date},#{rl_money},#{rl_uid})
+  </insert>
+  <select id="queryAllByPage" resultMap="ReturnListResultMap">
+  	select * from returnlist rl,supplier s,storehouse sh,user u where rl.s_id=s.s_id and rl.sh_id=sh.sh_id and rl.u_id=u.u_id limit #{pageNo},#{pageSize} 
+  </select>
+  <select id="count" resultType="int">
+  	select count(*) from returnlist
+  </select>
+  <select id="queryById" resultMap="ReturnListResultMap">
+  	select * from returnlist rl,returndetail rd,goods g,supplier s,storehouse sh,user u where rl.rl_id=rd.rl_id and rd.g_id=g.g_id and rl.s_id=s.s_id and rl.sh_id=sh.sh_id and rl.u_id=u.u_id and rl.rl_id=#{rl_id}
+  </select>
+    <!-- 条件查询 进货单查询 -->
+  <select id="queryByReason" resultMap="ReturnListResultMap">
+  	select * from returnlist rl,supplier s,storehouse sh,user u where rl.s_id=s.s_id and rl.sh_id=sh.sh_id and rl.u_id=u.u_id 
+  	<if test="sh_id!=0">
+  		and sh.sh_id=#{sh_id}
+  	</if>
+  	<if test="u_id!=0">
+  		and u.u_id=#{u_id}
+  	</if>
+  	<if test="startdate!=null">
+  		and rl.rl_date &gt;= #{startdate}
+  	</if>
+  	<if test="enddate!=null">
+  		and rl.rl_date &lt;= #{enddate}
+  	</if>
+  	limit #{pageNo},#{pageSize}
+  </select>
+  <select id="countByReason" resultType="int">
+  	select count(*) from returnlist rl,storehouse sh,user u where rl.sh_id=sh.sh_id and rl.u_id=u.u_id
+  	<if test="sh_id!=0">
+  		and sh.sh_id=#{sh_id}
+  	</if>
+  	<if test="u_id!=0">
+  		and u.u_id=#{u_id}
+  	</if>
+  	<if test="startdate!=null">
+  		and rl.rl_date &gt;= #{startdate}
+  	</if>
+  	<if test="enddate!=null">
+  		and rl.rl_date &lt;= #{enddate}
+  	</if>
+  </select>
+</mapper>

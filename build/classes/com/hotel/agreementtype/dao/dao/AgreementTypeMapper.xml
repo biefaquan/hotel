@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.agreementtype.dao.dao.AgreementTypeMapper">
+  <select id="queryAll" resultType="AgreementType">
+  	select * from agreementtype
+  </select>
+  <select id="queryById" parameterType="int" resultType="AgreementType">
+  	select * from agreementtype where at_id=#{at_id}
+  </select>
+  <insert id="add" parameterType="AgreementType">
+  	insert into agreementtype values(null,#{at_name})
+  </insert>
+  <update id="update" parameterType="AgreementType">
+  	update agreementtype set at_name=#{at_name} where at_id=#{at_id}
+  </update>
+  <delete id="delete" parameterType="int">
+  	delete from agreementtype where at_id=#{at_id}
+  </delete>
+</mapper>

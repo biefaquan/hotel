@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.customer.dao.dao.CustomerMapper">
+	<insert id="add" parameterType="Customer" useGeneratedKeys="true" keyProperty="c_id">
+		insert into customer values(null,#{c_name},#{c_sex},#{c_idtype},#{c_idcard},#{c_phone},#{c_birthday},#{c_like},#{c_adress},#{c_reward},#{c_nation})
+	</insert>
+	<update id="update" parameterType="Customer">
+		update customer set c_name=#{c_name},c_sex=#{c_sex},c_idtype=#{c_idtype},c_idcard=#{c_idcard},c_phone=#{c_phone},c_birthday=#{c_birthday},c_like=#{c_like},c_adress=#{c_adress},c_reward=#{c_reward},c_nation=#{c_nation} where c_id=#{c_id}
+	</update>
+	<delete id="delete" parameterType="int">
+		delete from customer where c_id=#{c_id}
+	</delete>
+	<select id="queryById" resultType="Customer">
+		select * from customer where c_id=#{c_id}
+	</select>
+</mapper>

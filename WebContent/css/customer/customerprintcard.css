@@ -1,0 +1,12 @@
+body { margin: 0px; padding: 0px; font-family: "Microsoft YaHei"; font-size: 12px; }
+h1 { padding: 5px 0px; width: 100%; text-align: center; margin: 0px 0px 10px; font-weight: lighter; font-size: 20px; }
+.print { width: 100%; }
+.main { border-top: 1px solid rgb(0, 0, 0); border-bottom: 1px solid rgb(0, 0, 0); padding: 10px 0px; width: 100%; float: left; margin-top: 10px; }
+.number { float: left; margin-right: 20px; display: inline; text-align: left; }
+ul { width: 100%; float: left; margin: 0px; padding: 0px; }
+ul li { float: left; line-height: 20px; list-style-type: none; width: 160px; }
+ul li label { width: 60px; text-align: left; float: left; }
+ul li b { font-weight: lighter; float: left; width: auto; text-align: left; }
+.sign { width: 100%; float: left; padding-top: 10px; }
+.sign .l { float: left; white-space: normal; min-width: 60px; }
+.sign .r { float: right; white-space: normal; min-width: 145px; text-align: right; padding-right: 10px; }

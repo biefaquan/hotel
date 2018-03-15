@@ -1,0 +1,47 @@
+/* ::::: http://www.jdd365.cn/styles/main.css ::::: */
+
+body { font-size: 12px; margin: 0px; padding: 0px; font-family: "Microsoft YaHei"; }
+body, html { height: 100%; width: 100%; }
+ul, li, p, span, h1, h2, h3, h4, dd, dl { margin: 0px; padding: 0px; }
+li { list-style-type: none; }
+input, button, select, textarea { color: rgb(51, 51, 51); outline: medium none; padding-left: 5px; }
+input:hover, select:hover, textarea:hover, .input_keynote { border-color: rgb(102, 175, 233) ! important; outline: 0px none; box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(102, 175, 233, 0.6); }
+em, address { font-style: normal; }
+.clrfix::after { clear: both; content: "."; display: block; height: 0px; visibility: hidden; }
+.fontYaHei { font-family: "Hiragino Sans GB","Microsoft YaHei",黑体,宋体,sans-serif; }
+.clearfix::after { clear: both; content: " "; display: block; font-size: 0px; height: 0px; visibility: hidden; }
+.bus_add { font-size: 12px ! important; color: rgb(185, 115, 1) ! important; cursor: pointer; height: 30px ! important; line-height: 30px ! important; margin-right: 10px; font-weight: bold; background: transparent url('/hotel/img/roomrack/button.jpg') no-repeat scroll 0px -43px ! important; width: 82px ! important; text-align: center; border: 0px none ! important; padding: 0px ! important; }
+.bus_add:hover { outline: 0px none; box-shadow: none; background: transparent url('/hotel/img/roomrack/button_hover.jpg') no-repeat scroll 0px -43px ! important; }
+.bus_add:active { background: transparent url('/hotel/img/roomrack/button.jpg') no-repeat scroll 0px -43px ! important; }
+.qtantj { background: rgb(0, 173, 239) none repeat scroll 0% 0% ! important; border: 1px solid rgb(0, 143, 199) ! important; font-size: 12px; font-weight: bold; color: rgb(255, 255, 255) ! important; cursor: pointer; height: 25px ! important; float: left; margin-right: 0px ! important; padding: 0px 10px ! important; width: auto ! important; }
+.qtantj:hover { background: rgb(8, 154, 234) none repeat scroll 0% 0% ! important; outline: 0px none; box-shadow: none; border: 1px solid rgb(7, 136, 190) ! important; }
+.qtantj:active { background: rgb(0, 173, 239) none repeat scroll 0% 0% ! important; border: 1px solid rgb(0, 143, 199) ! important; }
+.add_price_type { background: transparent url('/hotel/img/roomrack/add_price_type.jpg') no-repeat scroll 0% 0%; border: 0px none ! important; font-size: 12px; color: rgb(255, 255, 255) ! important; cursor: pointer; width: 88px ! important; height: 25px ! important; float: left; margin-right: 0px ! important; padding: 0px ! important; }
+.main { width: 100%; margin-left: 0px; display: inline; float: left; margin-bottom: 20px; }
+table { width: 100%; border-top: 0px solid rgb(221, 221, 221); border-left: 1px solid rgb(221, 221, 221); float: left; }
+table th { font-size: 14px; border-bottom: 1px solid rgb(7, 137, 190); border-right: 1px solid rgb(102, 213, 255); height: 32px; background: rgb(0, 173, 239) none repeat scroll 0% 0%; color: rgb(255, 255, 255); }
+table tr { color: rgb(51, 51, 51); }
+table tr:hover { background: rgb(208, 242, 255) none repeat scroll 0% 0%; }
+table tr td { border-bottom: 1px solid rgb(221, 221, 221); border-right: 1px solid rgb(221, 221, 221); line-height: 28px; text-align: center; padding: 2px 5px; }
+.ftt_search { width: 100%; float: left; margin: 10px 0px; font-size: 12px; color: rgb(51, 51, 51); }
+.ftt_search label { float: left; line-height: 24px; padding-right: 5px; }
+.ftt_search input, .ftt_search select { border: 1px solid rgb(221, 221, 221); padding-left: 5px; margin-right: 20px; padding-right: 0px; font-size: 12px; font-family: "Microsoft YaHei"; color: rgb(0, 0, 0); float: left; }
+.ftt_search input { width: 240px; height: 22px; line-height: 22px; }
+.ftt_search select { padding: 0px; height: 26px; line-height: 26px; }
+table.vip_member { margin-top: 0px; float: left; width: 89%; }
+ul.vip_member { float: left; width: 10%; margin-top: 0px; border-bottom: 1px solid rgb(221, 221, 221); border-left: 1px solid rgb(221, 221, 221); background: rgb(208, 242, 255) none repeat scroll 0% 0%; }
+ul.vip_member li { float: left; width: 90%; text-align: left; line-height: 31px; color: rgb(51, 51, 51); border-top: 1px solid rgb(170, 232, 255); border-bottom: 1px solid rgb(255, 255, 255); cursor: pointer; position: relative; padding-left: 10%; }
+ul.vip_member li.end { border-top: 1px solid rgb(170, 232, 255); border-bottom: 0px none; height: 2px; }
+ul.vip_member li.add { border: 0px none; width: 80% ! important; }
+ul.vip_member li.add input { border-width: 1px 0px 1px 1px; border-style: solid none solid solid; border-color: rgb(221, 221, 221) -moz-use-text-color rgb(221, 221, 221) rgb(221, 221, 221); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; width: 60px; height: 24px; margin: 5px 0px; float: left; }
+ul.vip_member li:hover, ul.vip_member li.select { background: rgb(229, 255, 210) none repeat scroll 0% 0%; }
+ul.vip_member li.add:hover { background: transparent none repeat scroll 0% 0%; }
+ul.vip_member li em { background: transparent url('/hotel/img/roomrack/edit_1.png') no-repeat scroll 0% 0%; width: 11px; height: 11px; float: left; margin-right: 10px; margin-top: 8px; position: absolute; }
+ul.vip_member li em:hover {  }
+ul.vip_member li em.dell { background-position: 0px -16px; right: 5px; top: 2px; }
+ul.vip_member li em.edit { background-position: 0px 0px; top: 3px; right: 25px; }
+.vip_db { width: 89%; float: left; margin-top: 20px; margin-left: 10%; }
+.vip_db .fl { float: left; }
+.vip_db .fr { float: right; }
+/* ::::: http://www.jdd365.cn/styles/tch.css ::::: */
+

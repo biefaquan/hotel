@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.pickdetail.dao.dao.PickDetailMapper">
+  <insert id="add" parameterType="PickDetail">
+  	insert into pickdetail values(null,#{pl.pl_id},#{g.g_id},#{pd_price},#{pd_number},#{pd_money})
+  </insert>
+</mapper>

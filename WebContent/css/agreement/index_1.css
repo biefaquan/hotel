@@ -1,0 +1,53 @@
+/* ::::: http://conunit.jdd365.cn/Content/css/main.css ::::: */
+
+body { font-size: 12px; margin: 0px; padding: 0px; }
+ul, li, p, span, h1, h2, h3, h4, dd, dl { margin: 0px; padding: 0px; }
+li { list-style-type: none; }
+a { color: rgb(51, 51, 51); text-decoration: none; }
+a:hover { color: rgb(255, 153, 0); }
+input, button, select, textarea { color: rgb(51, 51, 51); outline: medium none; padding-left: 5px; }
+input:hover, select:hover, textarea:hover { border-color: rgb(102, 175, 233) ! important; outline: 0px none; box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(102, 175, 233, 0.6); }
+em, address { font-style: normal; }
+.clrfix::after { clear: both; content: "."; display: block; height: 0px; visibility: hidden; }
+.fontYaHei { font-family: "Hiragino Sans GB","Microsoft YaHei",黑体,宋体,sans-serif; }
+.clearfix::after { clear: both; content: " "; display: block; font-size: 0px; height: 0px; visibility: hidden; }
+.bus_add { font-size: 12px ! important; color: rgb(185, 115, 1) ! important; cursor: pointer; height: 30px ! important; line-height: 30px ! important; margin-right: 10px; font-weight: bold; background: transparent url('/hotel/img/roomrack/button.jpg') no-repeat scroll 0px -43px ! important; width: 82px ! important; text-align: center; border: 0px none ! important; padding: 0px ! important; }
+.qtantj { background: transparent url('/hotel/img/roomrack/search_top.jpg') no-repeat scroll 0% 0%; border: 0px none ! important; font-size: 12px; font-weight: bold; color: rgb(255, 255, 255) ! important; cursor: pointer; width: 60px ! important; height: 25px ! important; float: left; margin-right: 0px ! important; padding-left: 0px ! important; }
+table { width: 100%; border-top: 0px solid rgb(221, 221, 221); border-left: 1px solid rgb(221, 221, 221); float: left; }
+table th { font-size: 14px; border-bottom: 1px solid rgb(7, 137, 190); border-right: 1px solid rgb(102, 213, 255); height: 32px; background: rgb(0, 173, 239) none repeat scroll 0% 0%; color: rgb(255, 255, 255); }
+table tr { color: rgb(51, 51, 51); }
+table tr:hover { background: rgb(208, 242, 255) none repeat scroll 0% 0%; }
+table tr td { border-bottom: 1px solid rgb(221, 221, 221); border-right: 1px solid rgb(221, 221, 221); line-height: 28px; text-align: center; padding: 2px 5px; }
+.select { background: transparent none repeat scroll 0% 0%; border-bottom: 1px solid rgb(221, 221, 221); height: 40px; text-align: left; }
+.p_main { width: 98%; margin: 0px auto; }
+.p_main_search { width: 100%; float: left; padding: 10px 0px; font-size: 12px; color: rgb(51, 51, 51); }
+.p_main_search label { float: left; line-height: 24px; padding-right: 5px; }
+.p_main_search input, .p_main_search select { border: 1px solid rgb(221, 221, 221); padding-left: 5px; margin-right: 25px; padding-right: 0px; font-size: 12px; font-family: "Hiragino Sans GB","Microsoft YaHei",黑体,宋体,sans-serif; color: rgb(0, 0, 0); float: left; }
+.p_main_search input { width: 120px; height: 22px; line-height: 22px; }
+.p_main_search select { padding: 0px; height: 26px; line-height: 26px; }
+.table_protocol { margin-left: 151px; }
+ul.vip_protocol { float: left; width: 150px; margin-top: 0px; border-bottom: 1px solid rgb(221, 221, 221); border-left: 1px solid rgb(221, 221, 221); background: rgb(208, 242, 255) none repeat scroll 0% 0%; }
+ul.vip_protocol li { float: left; width: 100%; text-align: left; line-height: 31px; color: rgb(51, 51, 51); border-top: 1px solid rgb(170, 232, 255); border-bottom: 1px solid rgb(255, 255, 255); cursor: pointer; position: relative; height: 31px; text-indent: 15px; }
+ul.vip_protocol li.end { border-top: 0px none; height: 2px; }
+ul.vip_protocol li.add { height: auto; padding: 5px 0px; border-bottom: 0px none; }
+ul.vip_protocol li.add .bus_add_add { background: rgb(112, 178, 54) none repeat scroll 0% 0%; border: 0px none; border-radius: 1px; color: rgb(255, 255, 255); cursor: pointer; float: left; font-size: 22px; font-weight: bold; line-height: 10px; width: 30px; height: 28px; margin-left: 0px; display: inline; }
+ul.vip_protocol li:hover, ul.vip_protocol li.select { background: rgb(229, 255, 210) none repeat scroll 0% 0%; }
+ul.vip_protocol li.add:hover { background: transparent none repeat scroll 0% 0%; }
+ul.vip_protocol li em { background: transparent url('/hotel/img/roomrack/edit_1.png') no-repeat scroll 0% 0%; width: 11px; height: 11px; float: left; margin-left: 10px; margin-top: 8px; position: absolute; }
+ul.vip_protocol li em:hover {  }
+ul.vip_protocol li em.dell { background-position: 0px -16px; right: 5px; top: 2px; }
+ul.vip_protocol li em.edit { background-position: 0px 0px; top: 3px; right: 25px; }
+ul.vip_protocol li input[type="text"] { border: 1px solid rgb(221, 221, 221); width: 60px; height: 22px; line-height: 22px; text-align: center; }
+.protocol_db { width: 100%; float: left; margin-top: 10px; }
+.protocol_db .fl { float: left; }
+.protocol_db .fr { float: right; }
+/* ::::: http://conunit.jdd365.cn/Content/css/tch.css ::::: */
+
+.black_overlay { display: none; position: absolute; top: 0%; left: 0%; width: 100%; height: 100%; background-color: rgb(0, 0, 0); z-index: 1001; opacity: 0.5; }
+.white_content { display: none; position: absolute; top: 20%; left: 20%; padding: 20px; background-color: rgb(255, 255, 255); border: 5px solid rgba(0, 0, 0, 0.2); z-index: 1002; height: auto; max-width: 1000px; }
+.white_content .close { width: 100%; height: 3px; position: relative; }
+.white_content .close a { position: absolute; right: -35px; top: -37px; background: transparent url('/hotel/img/roomrack/tk_close.png') no-repeat scroll 0% 0%; width: 30px; height: 30px; z-index: 9999; }
+.white_content .close a:hover { background-position: 0px -35px; }
+/* ::::: http://conunit.jdd365.cn/Content/css/jquery.datetimepicker.css ::::: */
+
+.xdsoft_noselect::-moz-selection { background: transparent none repeat scroll 0% 0%; }

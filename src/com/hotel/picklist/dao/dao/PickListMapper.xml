@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.picklist.dao.dao.PickListMapper">
+<resultMap type="PickList" id="PickListResultMap" autoMapping="true">
+	<id property="pl_id" column="pl_id"/>
+	<association property="d" javaType="Dept">
+		<id property="d_id" column="d_id"/>
+	</association>
+	<association property="sh" javaType="StoreHouse">
+		<id property="sh_id" column="sh_id"/>
+	</association>
+	<association property="u" javaType="User">
+		<id property="u_id" column="u_id"/>
+	</association>
+	<collection property="pdlist" ofType="PickDetail">
+		<id property="pd_id" column="pd_id"/>
+		<association property="g" javaType="Goods">
+			<id property="g_id" column="g_id"/>
+		</association>
+	</collection>
+</resultMap>
+  <insert id="add" parameterType="PickList" useGeneratedKeys="true" keyProperty="pl_id">
+  	insert into picklist values(null,#{d.d_id},#{sh.sh_id},#{u.u_id},#{pl_remark},#{pl_instruction},#{pl_date},#{pl_money},#{pl_uid})
+  </insert>
+  <select id="queryAll" resultMap="PickListResultMap">
+  	select * from picklist pl,pickdetail pd ,goods g,dept d,storehouse sh,user u where  pl.pl_id=pd.pl_id and pd.g_id=g.g_id and pl.d_id=d.d_id and pl.sh_id=sh.sh_id and pl.u_id=u.u_id
+  </select>
+  <select id="queryAllByPage" resultMap="PickListResultMap">
+  	select * from picklist pl,dept d,storehouse sh,user u where pl.d_id=d.d_id and pl.sh_id=sh.sh_id and pl.u_id=u.u_id limit #{pageNo},#{pageSize}
+  </select>
+  <select id="count"  resultType="int">
+  	select count(*) from picklist
+  </select>
+  <select id="queryById" resultMap="PickListResultMap">
+  	select * from picklist pl,pickdetail pd ,goods g,dept d,storehouse sh,user u where  pl.pl_id=pd.pl_id and pd.g_id=g.g_id and pl.d_id=d.d_id and pl.sh_id=sh.sh_id and pl.u_id=u.u_id and pl.pl_id=#{pl_id}
+  </select>
+  <!-- 条件查询  领料单查询 -->
+  <select id="queryByReason" resultMap="PickListResultMap">
+  	select * from picklist pl,dept d,storehouse sh,user u where pl.d_id=d.d_id and pl.sh_id=sh.sh_id and pl.u_id=u.u_id 
+  	<if test="sh_id!=0">
+  		and sh.sh_id=#{sh_id}
+  	</if>
+  	<if test="u_id!=0">
+  		and u.u_id=#{u_id}
+  	</if>
+  	<if test="startdate!=null">
+  		and pl.pl_date &gt;= #{startdate}
+  	</if>
+  	<if test="enddate!=null">
+  		and pl.pl_date &lt;= #{enddate}
+  	</if>
+  	limit #{pageNo},#{pageSize}
+  </select>
+  <select id="countByReason" resultType="int">
+  	select count(*) from picklist pl,storehouse sh,user u where pl.sh_id=sh.sh_id and pl.u_id=u.u_id
+  	<if test="sh_id!=0">
+  		and sh.sh_id=#{sh_id}
+  	</if>
+  	<if test="u_id!=0">
+  		and u.u_id=#{u_id}
+  	</if>
+  	<if test="startdate!=null">
+  		and pl.pl_date &gt;= #{startdate}
+  	</if>
+  	<if test="enddate!=null">
+  		and pl.pl_date &lt;= #{enddate}
+  	</if>
+  </select>
+</mapper>

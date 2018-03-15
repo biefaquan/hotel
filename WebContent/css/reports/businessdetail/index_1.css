@@ -1,0 +1,12 @@
+/* ::::: http://www.jdd365.cn/Styles/main.css ::::: */
+
+body { font-size: 12px; margin: 0px; padding: 0px; font-family: "Microsoft YaHei"; }
+body, html { height: 100%; width: 100%; }
+img { border: medium none; }
+.clrfix::after { clear: both; content: "."; display: block; height: 0px; visibility: hidden; }
+.clearfix::after { clear: both; content: " "; display: block; font-size: 0px; height: 0px; visibility: hidden; }
+.report { width: 100%; margin: 0px auto; color: rgb(0, 0, 0); }
+.report .fl { width: 8%; float: left; }
+.report .fr { width: 90%; float: right; }
+/* ::::: http://www.jdd365.cn/Styles/tch.css ::::: */
+

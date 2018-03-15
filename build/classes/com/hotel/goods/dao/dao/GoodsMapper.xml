@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.goods.dao.dao.GoodsMapper">
+<resultMap type="Goods" id="GoodsResultMap" autoMapping="true">
+	<id property="g_id" column="g_id"/>
+	<association property="sh" javaType="StoreHouse">
+		<id property="sh_id" column="sh_id"/>
+	</association>
+</resultMap>
+  <insert id="add" parameterType="Goods"  useGeneratedKeys="true" keyProperty="g_id">
+  	insert into goods values(null,#{g_name},#{g_type},#{g_unit},#{g_unitprice},#{g_number},#{g_money},#{g_reward},#{sh.sh_id})
+  </insert>
+  <select id="queryAll" resultMap="GoodsResultMap">
+  	select * from goods g,storehouse sh where g.sh_id=sh.sh_id
+  </select>
+  <select id="queryByName" parameterType="String" resultMap="GoodsResultMap">
+  	select * from goods g,storehouse sh where g.sh_id=sh.sh_id and g.g_name=#{g_name}
+  </select>
+  <select id="queryByNameSH" resultMap="GoodsResultMap">
+  	select * from goods g,storehouse sh where g.sh_id=sh.sh_id and g.g_name=#{g_name} and g.sh_id=#{sh_id}
+  </select>
+  <select id="selectName" resultType="String">
+  	select distinct g.g_name from goods g,storehouse sh where g.sh_id=sh.sh_id
+  </select>
+  <select id="queryAllBySH" resultMap="GoodsResultMap">
+  	select * from goods g,storehouse sh where g.sh_id=sh.sh_id and g.sh_id=#{sh_id}
+  </select>
+  <select id="queryAllByPage" resultMap="GoodsResultMap">
+  	select * from goods g,storehouse sh where g.sh_id=sh.sh_id limit #{pageNo},#{pageSize} 
+  </select>
+  <select id="count" resultType="int">
+  	select count(*) from goods
+  </select>
+  <select id="queryById" resultMap="GoodsResultMap">
+  	select * from goods g,storehouse sh where g.sh_id=sh.sh_id and g.g_id=#{g_id} 
+  </select>
+  <update id="update" parameterType="Goods">
+  	update goods set g_name=#{g_name},g_type=#{g_type},g_unit=#{g_unit},g_unitprice=#{g_unitprice},g_number=#{g_number},g_money=#{g_money},g_reward=#{g_reward},sh_id=#{sh.sh_id} where g_id=#{g_id}
+  </update>
+  <delete id="delete" parameterType="int">
+  	delete from goods where g_id=#{g_id}
+  </delete>
+  <select id="queryByReason" resultMap="GoodsResultMap">
+  	select * from goods g,storehouse sh where g.sh_id=sh.sh_id 
+  	<if test="g_name!=null">
+  		and g.g_name=#{g_name}
+  	</if>
+  	<if test="sh_id!=0">
+  		and sh.sh_id=#{sh_id}
+  	</if>
+  	limit #{pageNo},#{pageSize}
+  </select>
+  <select id="countByReason" resultType="int">
+  	select count(*) from goods g,storehouse sh where g.sh_id=sh.sh_id 
+  	<if test="g_name!=null">
+  		and g.g_name=#{g_name}
+  	</if>
+  	<if test="sh_id!=0">
+  		and sh.sh_id=#{sh_id}
+  	</if>
+  </select>
+</mapper>

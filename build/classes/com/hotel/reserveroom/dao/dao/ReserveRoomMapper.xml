@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.reserveroom.dao.dao.ReserveRoomMapper">
+<resultMap type="ReserveRoom" id="ReserveRoomResultMap" autoMapping="true">
+	<id property="rr_id" column="rr_id"/>
+	<association property="u" javaType="User" >
+		<id property="u_id" column="u_id"/>
+	</association>
+	<collection property="rnlist" ofType="ReserveNum">
+		<id property="rn_id" column="rn_id"/>
+		<association property="r" javaType="Room">
+			<id property="r_id" column="r_id"/>
+			<association property="rt" javaType="RoomType">
+				<id property="rt_id" column="rt_id"/>
+			</association>
+		</association>
+	</collection>
+</resultMap>
+	<insert id="add" parameterType="ReserveRoom"  useGeneratedKeys="true" keyProperty="rr_id">
+		insert into reserveroom values(null,#{rr_name},#{rr_phone},#{rr_source},#{rr_typenum},#{rr_startdate},#{rr_enddate},#{rr_nowdate},#{rr_keyway},#{rr_guarantystyle},#{rr_paytype},#{rr_depositfee},#{rr_reward},#{u.u_id},#{rr_state})
+	</insert>
+	<select id="queryAll" resultMap="ReserveRoomResultMap">
+		select * from reserveroom rr,user u,reservenum rn,room r where rr.rr_id=rn.rr_id and rr.u_id=u.u_id and rn.r_id=r.r_id
+	</select>
+	<select id="queryAllByPage" resultMap="ReserveRoomResultMap">
+		select * from reserveroom rr,user u where rr.u_id=u.u_id limit #{pageNo},#{pageSize}
+	</select>
+	<select id="count" resultType="int">
+		select count(*) from reserveroom
+	</select>
+	<!-- 房间没有全部转入住 -->
+	<select id="queryById" parameterType="int" resultMap="ReserveRoomResultMap">
+		select * from reserveroom rr,user u,reservenum rn,room r,roomtype rt where rr.rr_id=rn.rr_id and rr.u_id=u.u_id and rn.r_id=r.r_id and r.rt_id=rt.rt_id and r.r_state=2 and rr.rr_id=#{rr_id}
+	</select>
+	<!-- 只查询（不管其他条件） -->
+	<select id="queryById1" parameterType="int" resultMap="ReserveRoomResultMap">
+		select * from reserveroom rr,user u,reservenum rn,room r,roomtype rt where rr.rr_id=rn.rr_id and rr.u_id=u.u_id and rn.r_id=r.r_id and r.rt_id=rt.rt_id and rr.rr_id=#{rr_id}
+	</select>
+	<update id="update" parameterType="ReserveRoom">
+		update reserveroom set rr_name=#{rr_name},rr_phone=#{rr_phone},rr_source=#{rr_source},rr_typenum=#{rr_typenum},rr_startdate=#{rr_startdate},rr_enddate=#{rr_enddate},rr_nowdate=#{rr_nowdate},rr_keyway=#{rr_keyway},rr_guarantystyle=#{rr_guarantystyle},rr_paytype=#{rr_paytype},rr_depositfee=#{rr_depositfee},rr_reward=#{rr_reward},u_id=#{u.u_id},rr_state=#{rr_state} where rr_id=#{rr_id}
+	</update>
+	<delete id="delete" parameterType="int">
+		delete from reserveroom where rr_id=#{rr_id}
+	</delete>
+	<!-- 条件查询  预订界面 -->
+	<select id="queryByReason" resultMap="ReserveRoomResultMap">
+		select * from reserveroom rr,user u where rr.u_id=u.u_id
+		<if test="startdate!=null">
+			and rr.rr_startdate &gt;= #{startdate}
+		</if>
+		<if test="enddate!=null">
+			and rr.rr_startdate &lt;= #{enddate}
+		</if>
+		<if test="rr_name!=null">
+			and rr.rr_name = #{rr_name}
+		</if>
+		<if test="rr_state!=-1">
+			and rr.rr_state = #{rr_state}
+		</if>
+		limit #{pageNo},#{pageSize}
+	</select>
+	<select id="countByReason" resultType="int">
+		select count(*) from reserveroom rr where 1=1
+		<if test="startdate!=null">
+			and rr.rr_startdate &gt;= #{startdate}
+		</if>
+		<if test="enddate!=null">
+			and rr.rr_startdate &lt;= #{enddate}
+		</if>
+		<if test="rr_name!=null">
+			and rr.rr_name = #{rr_name}
+		</if>
+		<if test="rr_state!=-1">
+			and rr.rr_state = #{rr_state}
+		</if>
+	</select>
+</mapper>

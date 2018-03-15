@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.changerecord.dao.dao.ChangeRecordMapper">
+  <insert id="add" parameterType="ChangeRecord">
+  	insert into changerecord values(null,#{old_r_id},#{new_r_id},#{c.c_id},#{cr_typenum},#{cr_source},#{cr_keyway},#{cr_opentime},#{cr_nowtime},#{cr_days},#{cr_reason},#{cr_money},#{u.u_id})
+  </insert>
+</mapper>

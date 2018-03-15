@@ -1,0 +1,63 @@
+/* ::::: http://www.jdd365.cn/Styles/main.css ::::: */
+
+body { font-size: 12px; margin: 0px; padding: 0px; font-family: "Microsoft YaHei"; }
+body, html { height: 100%; width: 100%; }
+ul, li, p, span, h1, h2, h3, h4, dd, dl { margin: 0px; padding: 0px; }
+li { list-style-type: none; }
+a { color: rgb(51, 51, 51); text-decoration: none; }
+img { border: medium none; }
+a:hover { color: rgb(255, 153, 0); }
+input, button, select, textarea { color: rgb(51, 51, 51); outline: medium none; padding-left: 5px; }
+input:hover, select:hover, textarea:hover, .input_keynote { border-color: rgb(102, 175, 233) ! important; outline: 0px none; box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(102, 175, 233, 0.6); }
+.none { display: none; }
+.clrfix::after { clear: both; content: "."; display: block; height: 0px; visibility: hidden; }
+.clearfix::after { clear: both; content: " "; display: block; font-size: 0px; height: 0px; visibility: hidden; }
+.bus_add { font-size: 12px ! important; color: rgb(185, 115, 1) ! important; cursor: pointer; height: 30px ! important; line-height: 30px ! important; margin-right: 10px; font-weight: bold; background: transparent url('/hotel/img/roomrack/button.jpg') no-repeat scroll 0px -43px ! important; width: 82px ! important; text-align: center; border: 0px none ! important; padding: 0px ! important; }
+.bus_add:hover { outline: 0px none; box-shadow: none; background: transparent url('/hotel/img/roomrack/button_hover.jpg') no-repeat scroll 0px -43px ! important; }
+.bus_add:active { background: transparent url('/hotel/img/roomrack/button.jpg') no-repeat scroll 0px -43px ! important; }
+.bus_dell { font-size: 12px ! important; color: rgb(102, 102, 102) ! important; cursor: pointer; height: 30px ! important; line-height: 30px ! important; margin-right: 10px; font-weight: bold; background: transparent url('/hotel/img/roomrack/button.jpg') no-repeat scroll 0px -84px ! important; width: 82px ! important; text-align: center; border: 0px none ! important; padding: 0px ! important; }
+.bus_dell:hover { outline: 0px none; box-shadow: none; background: transparent url('/hotel/img/roomrack/button_hover.jpg') no-repeat scroll 0px -84px ! important; }
+.bus_dell:active { background: transparent url('/hotel/img/roomrack/button.jpg') no-repeat scroll 0px -84px ! important; }
+table { width: 100%; border-top: 0px solid rgb(221, 221, 221); border-left: 1px solid rgb(221, 221, 221); float: left; }
+table th { font-size: 14px; border-bottom: 1px solid rgb(7, 137, 190); border-right: 1px solid rgb(102, 213, 255); height: 32px; background: rgb(0, 173, 239) none repeat scroll 0% 0%; color: rgb(255, 255, 255); }
+table tr { color: rgb(51, 51, 51); }
+table tr:hover { background: rgb(208, 242, 255) none repeat scroll 0% 0%; }
+table tr td { border-bottom: 1px solid rgb(221, 221, 221); border-right: 1px solid rgb(221, 221, 221); line-height: 28px; text-align: center; padding: 2px 5px; }
+a.pay_scan { display: block; float: left; border: 1px solid rgb(221, 221, 221); background: rgb(239, 239, 239) none repeat scroll 0% 0%; padding: 5px; margin-right: 10px; }
+a.pay_scan span { background: transparent url('/hotel/img/roomrack/pay_scan.png') no-repeat scroll left 0px; display: block; width: 20px; height: 20px; float: left; }
+a.pay_scan span.zhi { background-position: 0px -21px; }
+a.pay_scan b { display: block; float: left; padding: 0px 5px; line-height: 20px; font-size: 12px; color: rgb(51, 51, 51); }
+a.pay_scan:hover { background: rgb(221, 221, 221) none repeat scroll 0% 0%; border: 1px solid rgb(204, 204, 204); }
+a.pay_scan:hover b { color: rgb(255, 0, 0); }
+/* ::::: http://www.jdd365.cn/Styles/jquery.autocomplete.css ::::: */
+
+/* ::::: http://www.jdd365.cn/styles/tch.css ::::: */
+
+.ruzhu_infor { width: auto; float: left; overflow-x: hidden; }
+.ruzhu_infor ul { width: 100%; float: left; }
+.ruzhu_infor ul li { width: auto; float: left; margin-top: 10px; margin-right: 10px; }
+.ruzhu_infor ul li input { width: 120px; float: left; border: 1px solid rgb(204, 204, 204); height: 20px; padding-left: 5px; font-size: 12px; line-height: 20px; }
+.ruzhu_infor ul li label { float: left; width: 70px; text-align: right; line-height: 22px; color: rgb(51, 51, 51); font-size: 12px; }
+.ruzhu_infor ul li select { width: auto; float: left; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(221, 221, 221); height: 24px; padding-left: 0px; font-size: 12px; }
+.ruzhu_infor ul li a { color: rgb(7, 136, 189); }
+.ruzhu_infor ul li a:hover { text-decoration: underline; color: rgb(7, 136, 189); }
+.ruzhu_infor ul li span { line-height: 24px; color: rgb(153, 153, 153); }
+.ruzhu_infor .types { width: 100%; float: left; margin-top: 10px; padding-bottom: 5px; }
+.ruzhu_infor .types h1 { width: 100%; font-size: 16px; padding-bottom: 0px; font-weight: lighter; font-family: "Microsoft YaHei"; margin-bottom: 0px; float: left; color: rgb(7, 136, 189); }
+.ruzhu_infor .types h1 .fl { float: left; color: rgb(7, 136, 189); }
+.ruzhu_infor .types h1 .fr { float: right; color: rgb(51, 51, 51); }
+.ruzhu_infor .types h1 .fr label { font-size: 12px; }
+.ruzhu_infor .types h1 .fr a.sss { color: rgb(7, 136, 189); padding-top: 4px; font-size: 12px; text-decoration: underline; }
+.ruzhu_infor .line { border-bottom: 1px dotted rgb(221, 221, 221); width: 100%; float: left; margin-top: 0px; padding-bottom: 0px; }
+.ruzhu_infor .line .fl { float: left; font-size: 16px; color: rgb(7, 136, 189); padding-bottom: 2px; font-weight: lighter; font-family: "Microsoft YaHei"; }
+.ruzhu_infor .line .fr { float: right; font-size: 12px; color: rgb(102, 102, 102); padding-top: 3px; padding-bottom: 3px; }
+.ruzhu_infor .line .fr span { color: rgb(7, 136, 189); font-size: 14px; font-weight: bold; }
+.ruzhu_infor ul li label { font-size: 12px; color: rgb(51, 51, 51); }
+.gundong { height: 200px; overflow-y: scroll; position: relative; width: 100%; }
+.gundong tr td { height: 20px; line-height: 20px; }
+/* ::::: http://www.jdd365.cn/Scripts/layer/skin/layer.css ::::: */
+
+html #layui_layer_skinlayercss { display: none; position: absolute; width: 1989px; }
+/* ::::: http://www.jdd365.cn/Scripts/layer/skin/layer.css ::::: */
+
+html #layui_layer_skinlayercss { display: none; position: absolute; width: 1989px; }

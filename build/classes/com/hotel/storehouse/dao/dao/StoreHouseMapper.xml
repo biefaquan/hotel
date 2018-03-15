@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.storehouse.dao.dao.StoreHouseMapper">
+  <select id="queryAll" resultType="StoreHouse">
+  	select * from storehouse 
+  </select>
+  <select id="queryById" parameterType="int" resultType="StoreHouse">
+  	select * from storehouse where sh_id=#{sh_id}
+  </select>
+  <insert id="add" parameterType="StoreHouse">
+  	insert into storehouse values(null,#{sh_num},#{sh_name},#{sh_reward},#{sh_state})
+  </insert>
+  <update id="update" parameterType="StoreHouse">
+  	update storehouse set sh_num=#{sh_num},sh_name=#{sh_name},sh_reward=#{sh_reward},sh_state=#{sh_state} where sh_id=#{sh_id}
+  </update>
+</mapper>

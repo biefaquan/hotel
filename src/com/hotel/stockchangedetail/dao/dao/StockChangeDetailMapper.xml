@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.stockchangedetail.dao.dao.StockChangeDetailMapper">
+  <insert id="add" parameterType="StockChangeDetail">
+  	insert into stockchangedetail values(null,#{sc.sc_id},#{g.g_id},#{scd_price},#{scd_number},#{scd_money},#{scd_reward})
+  </insert>
+</mapper>

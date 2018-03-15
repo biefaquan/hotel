@@ -1,0 +1,146 @@
+/* ::::: http://www.jdd365.cn/Styles/main.css ::::: */
+
+body { font-size: 12px; margin: 0px; padding: 0px; font-family: "Microsoft YaHei"; }
+body, html { height: 100%; width: 100%; }
+ul, li, p, span, h1, h2, h3, h4, dd, dl { margin: 0px; padding: 0px; }
+a { color: rgb(51, 51, 51); text-decoration: none; }
+img { border: medium none; }
+a:hover { color: rgb(255, 153, 0); }
+input, button, select, textarea { color: rgb(51, 51, 51); outline: medium none; padding-left: 5px; }
+input:hover, select:hover, textarea:hover, .input_keynote { border-color: rgb(102, 175, 233) ! important; outline: 0px none; box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(102, 175, 233, 0.6); }
+em, address { font-style: normal; }
+.clrfix::after { clear: both; content: "."; display: block; height: 0px; visibility: hidden; }
+.fontYaHei { font-family: "Hiragino Sans GB","Microsoft YaHei",黑体,宋体,sans-serif; }
+.clearfix::after { clear: both; content: " "; display: block; font-size: 0px; height: 0px; visibility: hidden; }
+.qtantj { background: rgb(0, 173, 239) none repeat scroll 0% 0% ! important; border: 1px solid rgb(0, 143, 199) ! important; font-size: 12px; font-weight: bold; color: rgb(255, 255, 255) ! important; cursor: pointer; height: 25px ! important; float: left; margin-right: 0px ! important; padding: 0px 10px ! important; width: auto ! important; }
+.qtantj:hover { background: rgb(8, 154, 234) none repeat scroll 0% 0% ! important; outline: 0px none; box-shadow: none; border: 1px solid rgb(7, 136, 190) ! important; }
+.qtantj:active { background: rgb(0, 173, 239) none repeat scroll 0% 0% ! important; border: 1px solid rgb(0, 143, 199) ! important; }
+.menu { width: 100%; float: left; height: 36px; background: transparent url('/hotel/img/roomrack/menu_bg.jpg') repeat-x scroll left bottom; }
+.main { width: 100%; margin-left: 0px; display: inline; float: left; margin-bottom: 20px; }
+table { width: 100%; border-top: 0px solid rgb(221, 221, 221); border-left: 1px solid rgb(221, 221, 221); float: left; }
+table th { font-size: 14px; border-bottom: 1px solid rgb(7, 137, 190); border-right: 1px solid rgb(102, 213, 255); height: 32px; background: rgb(0, 173, 239) none repeat scroll 0% 0%; color: rgb(255, 255, 255); }
+table tr { color: rgb(51, 51, 51); }
+table tr:hover { background: rgb(208, 242, 255) none repeat scroll 0% 0%; }
+table tr td { border-bottom: 1px solid rgb(221, 221, 221); border-right: 1px solid rgb(221, 221, 221); line-height: 28px; text-align: center; padding: 2px 5px; }
+.ftt_search { width: 100%; float: left; margin: 10px 0px; font-size: 12px; color: rgb(51, 51, 51); }
+.ftt_search label { float: left; line-height: 24px; padding-right: 5px; }
+.ftt_search input, .ftt_search select { border: 1px solid rgb(221, 221, 221); padding-left: 5px; margin-right: 20px; padding-right: 0px; font-size: 12px; font-family: "Microsoft YaHei"; color: rgb(0, 0, 0); float: left; }
+.ftt_search input { width: 240px; height: 22px; line-height: 22px; }
+.ftt_search select { padding: 0px; height: 26px; line-height: 26px; }
+.ftt_search .fr { float: right; }
+.ftt_search .fr label { float: right; padding-right: 5px; line-height: 20px; padding-left: 3px; }
+.ftt_search .fr p { padding: 2px; border: 1px solid rgb(221, 221, 221); display: block; float: right; margin-right: 5px; cursor: pointer; background: rgb(241, 241, 241) none repeat scroll 0% 0%; }
+.ftt_search .fr p.small { width: 6px; height: 6px; margin-top: 5px; }
+.ftt_search .fr p.middle { width: 8px; height: 8px; margin-top: 4px; }
+.ftt_search .fr p.big { width: 10px; height: 10px; margin-top: 3px; }
+.ftt_search .fr p span { width: 100%; height: 100%; background: rgb(7, 136, 190) none repeat scroll 0% 0%; display: none; }
+.ftt_main { width: 100%; float: left; overflow: auto; }
+.ftt_main .divs { font-family: "Microsoft YaHei"; float: left; margin-right: 1px; display: inline; margin-bottom: 0px; color: rgb(255, 255, 255); cursor: pointer; position: relative; }
+.ftt_main .divroom { float: left; margin-right: 5px; display: inline; margin-bottom: 5px; border-width: 1px 2px 2px 1px; border-style: solid; border-color: rgb(153, 153, 153); }
+.ftt_main .divs .room { font-size: 16px; width: 100%; float: left; line-height: 18px; padding: 8px 0px 3px; font-weight: bold; text-indent: 8px; }
+.ftt_main .divs .type { width: 100%; float: left; padding-top: 10px; text-indent: 8px; color: rgb(255, 255, 255); line-height: 16px; overflow: hidden; }
+.ftt_main .divs .name { float: left; padding-left: 8px; color: rgb(255, 255, 255); width: 50px; overflow: hidden; height: 18px; }
+.ftt_main .divs .price { float: left; padding-left: 8px; color: rgb(255, 255, 255); width: 50px; overflow: hidden; height: 18px; text-align: right; }
+.ftt_main .divs .features { width: 100%; float: left; text-indent: 8px; color: rgb(255, 255, 255); overflow: hidden; height: 16px; line-height: 16px; }
+.ftt_small .divs { font-size: 11px; width: 110px; height: 65px; }
+.ftt_small .divroom { width: 111px; height: 66px; background: rgb(204, 204, 204) none repeat scroll 0% 0%; }
+.ftt_small .type { padding-top: 0px ! important; }
+.ftt_small .price { display: none; }
+.ftt_small .divs:hover, .ftt_small .divs:active, .ftt_small .divs:visited { background: transparent url('/hotel/img/roomrack/ftt_actives_small.png') no-repeat scroll left center; }
+.ftt_small .divs .features { display: none; }
+.ftt_main .divs.red { background-color: rgb(219, 64, 132); }
+.ftt_main .divs.purple { background-color: rgb(131, 178, 36); }
+.ftt_main .divs.gray { background-color: rgb(85, 85, 85); }
+.ftt_main .divs.black { background-color: rgb(157, 157, 157); }
+.ftt_main .divs .icon { position: absolute; right: 3px; top: 5px; width: 50px; }
+.ftt_main .divs .icon em { height: 15px; width: 15px; display: block; float: right; margin-left: 2px; background: transparent url('/hotel/img/roomrack/type_icon.png') no-repeat scroll 0% 0%; }
+.ftt_main .divs .icon em.leave { background-position: 0px -139px; }
+.ftt_main .divs .icon em.contact { background-position: 0px -177px; }
+.ftt_main .divs .icon em.co { background-position: 0px -250px; }
+.ftt_main .divs .icon em.qian { background-position: 0px -495px; }
+.div_floor_room { width: 100%; float: left; margin-bottom: 20px; }
+.ftt_sks { width: 60%; float: left; }
+.ftt_sks a { display: block; float: left; margin: 10px 20px 10px 0px; }
+.ftt_sks .colors { float: left; padding-left: 0px; line-height: 20px; display: block; position: relative; }
+.ftt_sks .colors em { height: 20px; display: block; float: left; color: rgb(255, 255, 255); padding: 0px 5px; line-height: 20px; margin-top: 10px; cursor: pointer; }
+.ftt_sks .colors em.red { background: rgb(219, 64, 132) none repeat scroll 0% 0%; }
+.ftt_sks .colors em.purple { background: rgb(131, 178, 36) none repeat scroll 0% 0%; }
+.ftt_sks .colors em.gray { background: rgb(85, 85, 85) none repeat scroll 0% 0%; }
+.ftt_sks .colors em.black { background: rgb(157, 157, 157) none repeat scroll 0% 0%; }
+.ftt_sks .colors b { color: rgb(255, 0, 0); padding-left: 5px; }
+.colorpanel { position: absolute; width: 253px; height: 188px; bottom: 30px; }
+.colorpanel td { padding: 0px; }
+.colorpanel tr td:hover, .colorpanel tr:hover { background: rgb(204, 204, 204) none repeat scroll 0% 0%; }
+.spnClose { float: right; }
+.tblColor { border-top: 1px solid rgb(0, 0, 0); }
+.ftt_type { width: 40%; float: right; }
+.ftt_type span { float: right; padding-left: 0px; line-height: 16px; color: rgb(51, 51, 51); margin: 10px 0px 10px 10px; }
+.ftt_type span a em { height: 15px; width: 15px; display: block; float: left; margin-right: 3px; background: transparent url('/hotel/img/roomrack/type_icon.jpg') no-repeat scroll 0% 0%; color: rgb(97, 97, 97); }
+.ftt_type span a:hover { background: rgb(7, 136, 190) none repeat scroll 0% 0%; color: rgb(255, 255, 255); display: block; float: left; padding: 1px 5px; }
+.ftt_type span a:hover em, .ftt_type span a.select em { background: transparent url('/hotel/img/roomrack/type_icon.png') no-repeat scroll 0% 0%; margin-top: 2px; margin-right: 1px; }
+.ftt_type span a em.clock { background-position: 0px -18px; }
+.ftt_type span a em.vip { background-position: 0px -94px; }
+.ftt_type span a em.leave { background-position: 0px -139px; }
+.ftt_type span a em.contact { background-position: 0px -177px; }
+.ftt_type span a em.me { background-position: 0px -212px; }
+.ftt_type span a em.co { background-position: 0px -250px; }
+.ftt_type span a em.month { background-position: 0px -325px; }
+.ftt_type span a em.night { background-position: 0px -367px; }
+.ftt_type span a em.cleans { background-position: 0px -409px; }
+.ftt_type span a em.pin { background-position: 0px -450px; }
+.ftt_type span a em.qian { background-position: 0px -495px; }
+.ftt_type span a em.zu { background-position: 0px -523px; }
+.ftt_type span.mores { position: relative; }
+.ftt_type span #span_more { margin-top: -2px; cursor: pointer; }
+.ftt_type span #span_content { position: absolute; right: 0px; bottom: 28px; border: 1px solid rgb(7, 136, 190); padding: 0px 20px 5px 0px; display: none; height: 30px; width: 220px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; }
+.ftt_type span #span_content img { position: absolute; bottom: -8px; right: 15px; }
+#FeaturesSelect { width: 80px; height: 24px; line-height: 24px; background: rgb(245, 245, 245) none repeat scroll 0% 0%; border: 1px solid rgb(221, 221, 221); color: rgb(51, 51, 51); float: left; margin-right: 20px; text-align: left; cursor: pointer; padding-left: 5px; position: relative; z-index: 9999; }
+#FeaturesSelect span { float: right; padding-right: 5px; }
+#FeaturesSelect span.nones { display: block; }
+#FeaturesSelect span.select { display: none; }
+ul#FeaturesBox { position: absolute; z-index: 150; height: auto; display: none; padding: 10px; width: 250px; background: rgb(245, 245, 245) none repeat scroll 0% 0%; border: 1px solid rgb(221, 221, 221); box-shadow: 3px 3px 3px; }
+.company_infor { position: fixed; width: 424px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; padding: 10px 20px; box-shadow: 0px 0px 10px rgb(102, 102, 102); }
+.company_infor .infor { float: left; position: relative; }
+.company_infor .infor h1 { font-size: 20px; float: left; font-weight: lighter; padding-right: 20px; }
+.company_infor .infor h2 { float: left; font-size: 12px; color: rgb(13, 148, 204); font-weight: lighter; padding-top: 10px; width: 210px; }
+.company_infor .infor h2 em { padding: 0px 5px; font-style: normal; }
+.company_infor .infor p { display: block; float: left; width: 100%; font-size: 12px; color: rgb(102, 102, 102); line-height: 24px; }
+.company_infor .infor p em { padding: 0px; font-style: normal; }
+.company_infor a.nextorder { font-family: "Microsoft YaHei"; text-align: center; font-size: 12px; line-height: 26px; color: rgb(255, 255, 255); float: right; display: block; background: transparent url('/hotel/img/roomrack/p_next.jpg') no-repeat scroll 0% 0%; height: 33px; width: 52px; position: absolute; right: 140px; top: -9px; }
+.company_infor a.nextorder:hover { color: rgb(255, 255, 0); font-weight: bold; }
+.company_infor .days { float: right; background: rgb(245, 245, 245) none repeat scroll 0% 0%; border-width: 1px 0px 1px 1px; border-style: solid none solid solid; border-color: rgb(221, 221, 221) -moz-use-text-color rgb(221, 221, 221) rgb(221, 221, 221); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; height: 34px; position: absolute; right: 44px; top: 20px; }
+.company_infor .days em { display: block; float: left; width: 50px; text-align: center; color: rgb(51, 51, 51); border-right: 1px solid rgb(221, 221, 221); font-size: 12px; line-height: 34px; }
+.company_infor .prices { width: 100%; float: left; }
+.company_infor .prices .every { float: left; width: 70px; text-align: center; margin: 10px 18px; display: inline; }
+.company_infor .prices .every em { border-radius: 100%; color: rgb(255, 255, 255); font-size: 14px; width: 70px; height: 70px; line-height: 70px; float: left; font-family: "Microsoft YaHei"; }
+.company_infor .prices .every em.one { background: rgb(14, 149, 204) none repeat scroll 0% 0%; }
+.company_infor .prices .every em.two { background: rgb(90, 181, 0) none repeat scroll 0% 0%; }
+.company_infor .prices .every em.three { background: rgb(238, 161, 43) none repeat scroll 0% 0%; }
+.company_infor .prices .every em.four { background: rgb(167, 102, 170) none repeat scroll 0% 0%; }
+.company_infor .prices .every p { width: 70px; float: left; font-size: 12px; line-height: 30px; }
+.company_infor .prices .every p.two { color: rgb(90, 181, 0); }
+.company_infor .prices .every p.three { color: rgb(238, 161, 43); }
+.company_infor .prices .every p.four { color: rgb(167, 102, 170); }
+.company_infor .remarks { width: 100%; float: left; border-top: 1px dotted rgb(204, 204, 204); font-size: 12px; padding: 5px 0px; }
+.company_infor .remarks em { display: block; float: left; width: 40px; line-height: 22px; color: rgb(0, 0, 0); }
+.company_infor .remarks span { display: block; float: left; width: 384px; line-height: 22px; color: rgb(102, 102, 102); }
+.company_infor .close { font-family: "Hiragino Sans GB","Microsoft YaHei",黑体,宋体,sans-serif; font-size: 20px; color: rgb(153, 153, 153); position: absolute; right: 12px; top: 10px; font-stretch: ultra-condensed; width: 15px; height: 12px; background: transparent url('/hotel/img/roomrack/infor_close.jpg') no-repeat scroll 0% 0%; cursor: pointer; }
+#MoveRoom { background: rgb(255, 255, 255) none repeat scroll 0% 0%; width: 200px; height: auto; cursor: move; position: absolute; left: 200px; top: 200px; box-shadow: 0px 0px 10px rgb(102, 102, 102); color: rgb(0, 0, 0); font-size: 12px; line-height: 20px; padding: 15px 0px; }
+#MoveRoom .first { width: 100%; float: left; line-height: 20px; padding-bottom: 5px; }
+#MoveRoom .first .name { font-size: 18px; float: left; font-weight: bold; text-indent: 15px; }
+#MoveRoom .first .room_type { float: left; padding-left: 15px; overflow: hidden; color: rgb(13, 148, 204); }
+#MoveRoom .times { width: 100%; float: left; overflow: hidden; color: rgb(102, 102, 102); }
+#MoveRoom .times label { width: 60px; float: left; text-align: left; padding-left: 15px; }
+#MoveRoom .times p { margin-left: 65px; }
+.ping_open { top: 25%; left: 38%; position: fixed; width: 300px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; padding: 10px 20px 20px; box-shadow: 0px 0px 10px rgb(102, 102, 102); }
+.ping_open h1 { font-family: "Microsoft YaHei"; line-height: 30px; font-size: 16px; text-align: left; font-weight: lighter; padding-bottom: 5px; }
+.ping_open table td span { height: 20px ! important; line-height: 20px; margin: 0px 10px; }
+.ping_open .close { font-family: "Hiragino Sans GB","Microsoft YaHei",黑体,宋体,sans-serif; font-size: 20px; color: rgb(153, 153, 153); position: absolute; right: 12px; top: 10px; font-stretch: ultra-condensed; width: 15px; height: 12px; background: transparent url('/hotel/img/roomrack/infor_close.jpg') no-repeat scroll 0% 0%; cursor: pointer; }
+/* ::::: http://www.jdd365.cn/scripts/easyui/themes/default/easyui.css ::::: */
+
+.menu { position: absolute; background: rgb(240, 240, 240) url('menu.gif') repeat-y scroll 0% 0%; margin: 0px; padding: 2px; border: 1px solid rgb(204, 204, 204); overflow: hidden; }
+.menu-item { position: relative; margin: 0px; padding: 0px; height: 22px; line-height: 20px; overflow: hidden; font-size: 12px; cursor: pointer; border: 1px solid transparent; }
+.menu-text { position: absolute; left: 28px; top: 0px; }
+.menu-rightarrow { position: absolute; width: 4px; height: 7px; top: 7px; right: 5px; background: transparent url('/hotel/img/roomrack/menu_rightarrow.png') no-repeat scroll 0% 0%; }
+html, body { -moz-user-select: none; }
+.menu-item { font-size: 14px; }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.supplier.dao.dao.SupplierMapper">
+	<insert id="add" parameterType="Supplier">
+		insert into supplier values(null,#{s_num},#{s_name},#{s_linkman},#{s_linkphone},#{s_adress},#{s_fax},#{s_reward},#{s_state})
+	</insert>
+	<select id="queryAll" resultType="Supplier">
+		select * from supplier
+	</select>
+	<select id="queryAllByPage" resultType="Supplier">
+		select * from supplier limit #{pageNo},#{pageSize}
+	</select>
+	<select id="count" resultType="int">
+		select count(*) from supplier
+	</select>
+	<select id="queryById" resultType="Supplier">
+		select * from supplier where s_id=#{s_id} 
+	</select>
+	<update id="update" parameterType="Supplier">
+		update supplier set s_num=#{s_num},s_name=#{s_name},s_linkman=#{s_linkman},s_linkphone=#{s_linkphone},s_adress=#{s_adress},s_fax=#{s_fax},s_reward=#{s_reward},s_state=#{s_state} where s_id=#{s_id}
+	</update>
+	<delete id="delete" parameterType="int">
+		delete from supplier where s_id=#{s_id}
+	</delete>
+	<!-- 条件查询    供应商界面 -->
+	<select id="queryByReason" resultType="Supplier">
+		select * from supplier where 1=1
+		<if test="s_name!=null">
+			and s_name=#{s_name}
+		</if>
+		<if test="s_state!=-1">
+			and s_state=#{s_state}
+		</if>
+		limit #{pageNo},#{pageSize}
+	</select>
+	<select id="countByReason" resultType="int">
+		select count(*) from supplier  where 1=1
+		<if test="s_name!=null">
+			and s_name=#{s_name}
+		</if>
+		<if test="s_state!=-1">
+			and s_state=#{s_state}
+		</if>
+	</select>
+</mapper>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.agreement.dao.dao.AgreementMapper">
+<resultMap type="Agreement" id="AgreementResultMap" autoMapping="true">
+	<id property="a_id" column="a_id"/>
+	<association property="at" javaType="AgreementType" >
+		<id property="at_id" column="at_id"/>
+	</association>
+	<association property="u" javaType="User" >
+		<id property="u_id" column="u_id"/>
+	</association>
+</resultMap>
+  <select id="queryAll" resultMap="AgreementResultMap">
+  	select * from agreement a,agreementtype at,user u where a.at_id=at.at_id and a.u_id=u.u_id
+  </select>
+  <select id="queryAllByPage" resultMap="AgreementResultMap">
+  	select * from agreement a,agreementtype at,user u where a.at_id=at.at_id and a.u_id=u.u_id limit #{pageNo},#{pageSize} 
+  </select>
+  <select id="queryById" parameterType="int" resultMap="AgreementResultMap">
+  	select * from agreement a,agreementtype at,user u where a.at_id=at.at_id and a.u_id=u.u_id and a.a_id=#{a_id}
+  </select>
+  <select id="queryByCardnum" parameterType="String" resultMap="AgreementResultMap">
+  	select * from agreement a,agreementtype at,user u where a.at_id=at.at_id and a.u_id=u.u_id and a.a_cardnum=#{a_cardnum}
+  </select>
+  <select id="count" resultType="int">
+  	select count(*) from agreement
+  </select>
+  <insert id="add" parameterType="Agreement">
+  	insert into agreement values(null,#{a_cardnum},#{a_name},#{at.at_id},#{a_username},#{a_userphone},#{a_accountstate},#{a_deptmoney},#{a_accountmoney},#{a_adress},#{u.u_id},#{a_startdate},#{a_enddate},#{a_reward},#{a_discountrate},#{a_state})
+  </insert>
+  <update id="update" parameterType="Agreement">
+  	update agreement set a_cardnum=#{a_cardnum},a_name=#{a_name},at_id=#{at.at_id},a_username=#{a_username},a_userphone=#{a_userphone},a_accountstate=#{a_accountstate},a_deptmoney=#{a_deptmoney},a_accountmoney=#{a_accountmoney},a_adress=#{a_adress},u_id=#{u.u_id},a_startdate=#{a_startdate},a_enddate=#{a_enddate},a_reward=#{a_reward},a_discountrate=#{a_discountrate},a_state=#{a_state} where a_id=#{a_id}
+  </update>
+  <delete id="delete" parameterType="int">
+  	delete from agreement where a_id=#{a_id}
+  </delete>
+  <!-- 条件查询 协议单位界面 -->
+  <select id="queryByReason" resultMap="AgreementResultMap">
+  	select * from agreement a,agreementtype at,user u where a.at_id=at.at_id and a.u_id=u.u_id 
+  	<if test="a_name!=null">
+  		and a.a_name=#{a_name}
+  	</if>
+  	<if test="a_username!=null">
+  		and a.a_username=#{a_username}
+  	</if>
+  	<if test="a_state!=-1">
+  		and a.a_state=#{a_state}
+  	</if>
+  	limit #{pageNo},#{pageSize} 
+  </select>
+  <select id="countByReason" resultType="int">
+  	select count(*) from agreement a where 1=1
+  	<if test="a_name!=null">
+  		and a.a_name=#{a_name}
+  	</if>
+  	<if test="a_username!=null">
+  		and a.a_username=#{a_username}
+  	</if>
+  	<if test="a_state!=-1">
+  		and a.a_state=#{a_state}
+  	</if>
+  </select>
+</mapper>

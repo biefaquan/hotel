@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.roomtype.dao.dao.RoomTypeMapper">
+  <select id="queryAll" resultType="RoomType">
+  	select * from roomtype 
+  </select>
+  <select id="queryById" parameterType="int" resultType="RoomType">
+  	select * from roomtype where rt_id=#{rt_id}
+  </select>
+  <insert id="add" parameterType="RoomType">
+  	insert into roomtype values(null,#{rt_name},#{rt_price},#{rt_num},#{rt_remark},#{rt_zdprice},#{rt_zdstate})
+  </insert>
+  <update id="update" parameterType="RoomType">
+  	update roomtype set rt_name=#{rt_name},rt_price=#{rt_price},rt_num=#{rt_num},rt_remark=#{rt_remark},rt_zdprice=#{rt_zdprice},rt_zdstate=#{rt_zdstate} where rt_id=#{rt_id}
+  </update>
+  <delete id="delete" parameterType="int">
+  	delete from roomtype where rt_id=#{rt_id}
+  </delete>
+</mapper>

@@ -1,0 +1,40 @@
+/* ::::: http://www.jdd365.cn/Styles/main.css ::::: */
+
+body { font-size: 12px; margin: 0px; padding: 0px; font-family: "Microsoft YaHei"; }
+body, html { height: 100%; width: 100%; }
+ul, li, p, span, h1, h2, h3, h4, dd, dl { margin: 0px; padding: 0px; }
+li { list-style-type: none; }
+input, button, select, textarea { color: rgb(51, 51, 51); outline: medium none; padding-left: 5px; }
+input:hover, select:hover, textarea:hover, .input_keynote { border-color: rgb(102, 175, 233) ! important; outline: 0px none; box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(102, 175, 233, 0.6); }
+em, address { font-style: normal; }
+.clrfix::after { clear: both; content: "."; display: block; height: 0px; visibility: hidden; }
+.clearfix::after { clear: both; content: " "; display: block; font-size: 0px; height: 0px; visibility: hidden; }
+.main { width: 100%; margin-left: 0px; display: inline; float: left; margin-bottom: 20px; }
+.z-btn { cursor: pointer; display: inline; float: left; font: 11px tahoma,verdana,helvetica; margin: 2px; white-space: nowrap; }
+.z-btn-left { background: transparent url('/hotel/img/roomrack/btnout_bg_left.gif') no-repeat scroll 0px 0px; height: 25px; width: 3px; }
+.z-btn-right { background: transparent url('/hotel/img/roomrack/btnout_bg_right.gif') no-repeat scroll -7px 0px; height: 25px; width: 4px; }
+.z-btn-left, .z-btn-right { font-size: 1px; line-height: 1px; float: left; }
+.z-btn-left i, .z-btn-right i { display: block; font-size: 1px; line-height: 1px; overflow: hidden; width: 3px; }
+.z-btn .z-btn-center { background: transparent url('/hotel/img/roomrack/btnout_bg_center.gif') repeat-x scroll 0px 0px; padding: 0px 6px; text-align: center; vertical-align: middle; white-space: nowrap; height: 25px; float: left; }
+.z-btn em { font-style: normal; font-weight: normal; }
+.z-btn .z-btn-center .z-btn-text { background-position: 0px 1px; background-repeat: no-repeat; padding: 2px 0px 0px 18px; }
+.z-btn input.z-button { background: transparent none repeat scroll 0px 0px; border: 0px none; font-family: Arial,Courier New; font-size: 12px; margin: 1px 0px 0px; outline: 0px none; overflow: visible; padding-left: 0px; padding-right: 0px; width: auto; cursor: pointer; }
+.icon-print { background-image: url('/hotel/img/roomrack/print.gif') ! important; background-position: 0px 4px ! important; }
+.z-btn:hover .z-btn-left { background: transparent url('/hotel/img/roomrack/btnover_bg_left.gif') no-repeat scroll 0px 0px; }
+.z-btn:hover .z-btn-right { background: transparent url('/hotel/img/roomrack/btnover_bg_right.gif') no-repeat scroll -7px 0px; }
+.z-btn:hover .z-btn-center { background: transparent url('/hotel/img/roomrack/btnover_bg_center.gif') repeat-x scroll 0px 0px; }
+.z-btn input:hover { outline: medium none; box-shadow: none; }
+body { margin: 0px; padding: 0px; font-family: "Microsoft YaHei"; font-size: 12px; }
+h1 { padding: 5px 0px; width: 100%; text-align: center; margin: 0px 0px 10px; font-weight: lighter; font-size: 20px; }
+h2 { padding: 0px; width: 100%; font-weight: bold; margin: 0px; line-height: 34px; font-size: 14px; }
+.print { width: 100%; }
+.main { border-top: 1px solid rgb(0, 0, 0); border-bottom: 1px solid rgb(0, 0, 0); padding: 10px 0px; width: 100%; float: left; margin-top: 10px; }
+.number { float: left; margin-right: 20px; display: inline; text-align: left; }
+ul { width: 100%; float: left; margin: 0px; padding: 0px; }
+ul li { float: left; line-height: 24px; list-style-type: none; width: 160px; }
+ul li label { width: 70px; text-align: left; float: left; }
+ul li b { font-weight: lighter; float: left; width: auto; text-align: left; }
+.wxts { color: rgb(0, 0, 0); width: 100%; border: 0px none; float: left; }
+.wxts label { width: 70px; text-align: left; line-height: 20px; float: left; }
+#lbl1 { line-height: 20px; width: 80px; float: left; }
+#lbl2 { line-height: 20px; margin-left: 80px; }

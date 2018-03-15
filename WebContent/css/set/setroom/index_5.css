@@ -1,0 +1,22 @@
+/* ::::: http://www.jdd365.cn/styles/main.css ::::: */
+
+body { font-size: 12px; margin: 0px; padding: 0px; font-family: "Microsoft YaHei"; }
+body, html { height: 100%; width: 100%; }
+ul, li, p, span, h1, h2, h3, h4, dd, dl { margin: 0px; padding: 0px; }
+li { list-style-type: none; }
+input, button, select, textarea { color: rgb(51, 51, 51); outline: medium none; padding-left: 5px; }
+input:hover, select:hover, textarea:hover, .input_keynote { border-color: rgb(102, 175, 233) ! important; outline: 0px none; box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(102, 175, 233, 0.6); }
+.clrfix::after { clear: both; content: "."; display: block; height: 0px; visibility: hidden; }
+.clearfix::after { clear: both; content: " "; display: block; font-size: 0px; height: 0px; visibility: hidden; }
+.bus_add { font-size: 12px ! important; color: rgb(185, 115, 1) ! important; cursor: pointer; height: 30px ! important; line-height: 30px ! important; margin-right: 10px; font-weight: bold; background: transparent url('/hotel/img/roomrack/button.jpg') no-repeat scroll 0px -43px ! important; width: 82px ! important; text-align: center; border: 0px none ! important; padding: 0px ! important; }
+.bus_add:hover { outline: 0px none; box-shadow: none; background: transparent url('/hotel/img/roomrack/button_hover.jpg') no-repeat scroll 0px -43px ! important; }
+.bus_add:active { background: transparent url('/hotel/img/roomrack/button.jpg') no-repeat scroll 0px -43px ! important; }
+.fangxing { position: relative; }
+/* ::::: http://www.jdd365.cn/styles/tch.css ::::: */
+
+.fangxing { width: auto; float: left; background: rgb(255, 255, 255) none repeat scroll 0% 0%; }
+.fangxing .line { border-bottom: 1px dotted rgb(221, 221, 221); width: 100%; float: left; margin-top: 0px; font-family: "Microsoft YaHei"; font-size: 16px; padding-bottom: 5px; color: rgb(7, 136, 189); }
+.fangxing ul li { width: 100%; float: left; margin-top: 10px; }
+.fangxing ul li input { width: 180px; float: left; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(204, 204, 204); height: 24px; padding-left: 10px; font-size: 14px; line-height: 24px; }
+.fangxing ul li label { float: left; width: 100px; text-align: right; line-height: 26px; color: rgb(51, 51, 51); font-size: 12px; }
+.fangxing ul li textarea { background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 1px solid rgb(204, 204, 204); width: 500px; height: 84px; line-height: 28px; float: left; font-size: 14px; resize: none; }

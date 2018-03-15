@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.bill.dao.dao.BillMapper">
+<resultMap type="Bill" id="BillResultMap" autoMapping="true">
+	<id property="b_id" column="b_id"/>
+	<association property="r" javaType="Room" >
+		<id property="r_id" column="r_id"/>
+		<association property="rt" javaType="RoomType">
+			<id property="rt_id" column="rt_id"/>
+		</association>
+	</association>
+	<association property="c" javaType="Customer" >
+		<id property="c_id" column="c_id"/>
+	</association>
+	<association property="u" javaType="User" >
+		<id property="u_id" column="u_id"/>
+	</association>
+</resultMap>
+  <insert id="add" parameterType="Bill">
+  	insert into bill values(null,#{r.r_id},#{c.c_id},#{b_source},#{b_typenum},#{b_keyway},#{b_starttime},#{b_endtime},#{b_allmoney},#{b_receivedmoney},#{b_paymoney},#{b_remark},#{b_paytype},#{b_money},#{u.u_id},#{b_days},#{b_state})
+  </insert>
+  <select id="queryAllByReason" resultMap="BillResultMap">
+  	select * from bill b,room r,roomtype rt,customer c,user u where b.r_id=r.r_id and b.c_id=c.c_id and b.u_id=u.u_id and r.rt_id=rt.rt_id
+  		<if test="starttime!=null and endtime==null">
+			and b.b_endtime &gt;= #{starttime}
+		</if>
+		<if test="endtime!=null and starttime==null">
+			and b.b_starttime &lt;=#{endtime}
+		</if>
+		<if test="starttime!=null and endtime!=null">
+			and not((b.b_endtime &lt; #{starttime}) or (b.b_starttime &gt; #{endtime} ))
+		</if>
+		<if test="roomnum!=0">
+			and r.r_roomnum=#{roomnum}
+		</if>
+		limit #{pageNo},#{pageSize}
+  </select>
+  <select id="countByReason" resultType="int">
+  	select count(*) from bill b,room r where b.r_id = r.r_id
+		<if test="starttime!=null and endtime==null">
+			and b_endtime &gt;= #{starttime}
+		</if>
+		<if test="endtime!=null and starttime==null">
+			and b_starttime &lt;=#{endtime}
+		</if>
+		<if test="starttime!=null and endtime!=null">
+			and not((b_endtime &lt; #{starttime}) or (b_starttime &gt; #{endtime} ))
+		</if>
+		<if test="roomnum!=0">
+			and r.r_roomnum=#{roomnum}
+		</if>
+  </select>
+  <select id="queryById" parameterType="int" resultMap="BillResultMap">
+  	select * from bill b,room r,roomtype rt,customer c,user u where b.r_id=r.r_id and b.c_id=c.c_id and b.u_id=u.u_id and r.rt_id=rt.rt_id and b.b_id=#{b_id}
+  </select>
+  <select id="queryAll" resultMap="BillResultMap">
+  	select * from bill b,room r,roomtype rt,customer c,user u where b.r_id=r.r_id and b.c_id=c.c_id and b.u_id=u.u_id and r.rt_id=rt.rt_id and b.b_source='会员'
+  </select>
+  <select id="queryAllAgree" resultMap="BillResultMap">
+  	select * from bill b,room r,roomtype rt,customer c,user u where b.r_id=r.r_id and b.c_id=c.c_id and b.u_id=u.u_id and r.rt_id=rt.rt_id and b.b_source='协议单位'
+  </select>
+  <select id="queryAll1" resultMap="BillResultMap">
+  	select * from bill b,room r,roomtype rt,customer c,user u,member m where b.r_id=r.r_id and b.c_id=c.c_id and b.u_id=u.u_id and r.rt_id=rt.rt_id and b.b_typenum=m.m_id and b.b_source='会员'
+  	<if test="startdate!=null">
+		and b_endtime &gt;= #{startdate}
+	</if>
+	<if test="enddate!=null">
+		and b_endtime &lt;= #{enddate}
+	</if>
+	<if test="typenum!=null">
+		and m.m_cardnum = #{typenum}
+	</if>
+  </select>
+  <select id="queryAgreement" resultMap="BillResultMap">
+  	select * from bill b,room r,roomtype rt,customer c,user u,agreement a where b.r_id=r.r_id and b.c_id=c.c_id and b.u_id=u.u_id and r.rt_id=rt.rt_id and b.b_typenum=a.a_id and b.b_source='协议单位'
+  	<if test="startdate!=null">
+		and b_endtime &gt;= #{startdate}
+	</if>
+	<if test="enddate!=null">
+		and b_endtime &lt;= #{enddate}
+	</if>
+	<if test="typenum!=null">
+		and a.a_cardnum = #{typenum}
+	</if>
+	limit #{pageNo},#{pageSize}
+  </select>
+  <select id="queryCount" resultType="int">
+  	select count(*) from bill b,agreement a where b.b_typenum=a.a_id and b.b_source='协议单位'
+  	<if test="startdate!=null">
+		and b_endtime &gt;= #{startdate}
+	</if>
+	<if test="enddate!=null">
+		and b_endtime &lt;= #{enddate}
+	</if>
+	<if test="typenum!=null">
+		and a.a_cardnum = #{typenum}
+	</if>
+  </select>
+  <update id="update" parameterType="Bill">
+  	update bill set r_id=#{r.r_id},c_id=#{c.c_id},b_source=#{b_source},b_typenum=#{b_typenum},b_keyway=#{b_keyway},b_starttime=#{b_starttime},b_endtime=#{b_endtime},b_allmoney=#{b_allmoney},b_receivedmoney=#{b_receivedmoney},b_paymoney=#{b_paymoney},b_remark=#{b_remark},b_paytype=#{b_paytype},b_money=#{b_money},u_id=#{u.u_id},b_days=#{b_days},b_state=#{b_state} where b_id=#{b_id}
+  </update>
+  <select id="queryDetail" resultMap="BillResultMap">
+  	select * from bill b,room r,roomtype rt,customer c,user u,agreement a where b.r_id=r.r_id and b.c_id=c.c_id and b.u_id=u.u_id and r.rt_id=rt.rt_id and b.b_typenum=a.a_id and b.b_source='协议单位'
+  	<if test="startdate!=null">
+		and b_starttime &gt;= #{startdate}
+	</if>
+	<if test="enddate!=null">
+		and b_starttime &lt;= #{enddate}
+	</if>
+	<if test="state!=-1">
+		and b_state=#{state}
+	</if>
+  </select>
+</mapper>

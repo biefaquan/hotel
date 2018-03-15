@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.member.dao.dao.MemberMapper">
+<resultMap type="Member" id="MemberResultMap" autoMapping="true">
+	<id property="m_id" column="m_id"/>
+	<association property="mt" javaType="MemberType" >
+		<id property="mt_id" column="mt_id"/>
+	</association>
+	<association property="c" javaType="Customer" >
+		<id property="c_id" column="c_id"/>
+	</association>
+	<association property="u" javaType="User" >
+		<id property="u_id" column="u_id"/>
+	</association>
+</resultMap>
+	<insert id="add" parameterType="Member" useGeneratedKeys="true" keyProperty="m_id">
+		insert into member values(null,#{m_cardnum},#{mt.mt_id},#{c.c_id},#{m_money},#{m_date},#{u.u_id},#{m_state})
+	</insert>
+	<select id="queryAllByPage" resultMap="MemberResultMap">
+		select * from member m,membertype mt,customer c,user u where m.c_id=c.c_id and m.mt_id=mt.mt_id and m.u_id=u.u_id limit #{pageNo},#{pageSize}
+	</select>
+	<select id="count" resultType="int">
+		select count(*) from member
+	</select>
+	<select id="queryById" resultMap="MemberResultMap">
+		select * from member m,membertype mt,customer c,user u where m.c_id=c.c_id and m.mt_id=mt.mt_id and m.u_id=u.u_id and m.m_id=#{m_id} 
+	</select>
+	<select id="queryByC_Id" resultMap="MemberResultMap">
+		select * from member m,membertype mt where m.mt_id = mt.mt_id and m.c_id=#{c_id} 
+	</select>
+	<select id="queryByCardnum" parameterType="String" resultMap="MemberResultMap">
+		select * from member m,membertype mt,customer c,user u where m.c_id=c.c_id and m.mt_id=mt.mt_id and m.u_id=u.u_id and m.m_cardnum=#{m_cardnum}  
+	</select>
+	<select id="queryAll" resultMap="MemberResultMap">
+		select * from member m,membertype mt,customer c,user u where m.c_id=c.c_id and m.mt_id=mt.mt_id and m.u_id=u.u_id
+	</select>
+	<update id="update" parameterType="Member">
+		update member set m_cardnum=#{m_cardnum},mt_id=#{mt.mt_id},m_money=#{m_money},m_date=#{m_date},m_state=#{m_state} where m_id=#{m_id}
+	</update>
+	<delete id="delete" parameterType="int">
+		delete from member where m_id=#{m_id}
+	</delete>
+	<!-- 条件查询，会员界面 -->
+	<select id="queryByReason" resultMap="MemberResultMap">
+		select * from member m,membertype mt,customer c,user u where m.c_id=c.c_id and m.mt_id=mt.mt_id and m.u_id=u.u_id 
+		<if test="m_name!=null">
+			and c.c_name=#{m_name}
+		</if>
+		<if test="m_state!=-1">
+			and m_state=#{m_state}
+		</if>
+		limit #{pageNo},#{pageSize}
+	</select>
+	<select id="countByReason" resultType="int">
+		select count(*) from member m,customer c where m.c_id=c.c_id
+		<if test="m_name!=null">
+			and c.c_name=#{m_name}
+		</if>
+		<if test="m_state!=-1">
+			and m_state=#{m_state}
+		</if>
+	</select>
+</mapper>

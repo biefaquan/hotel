@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.user.dao.dao.UserMapper">
+<resultMap type="User" id="UserResultMap" autoMapping="true">
+	<id property="u_id" column="u_id"/>
+	<association property="d" javaType="Dept" >
+		<id property="d_id" column="d_id"/>
+	</association>
+</resultMap>
+  <select id="queryByName" parameterType="String" resultMap="UserResultMap">
+  	select * from user u,dept d where u.d_id=d.d_id and u_name = #{name}
+  </select>
+  <select id="count" resultType="int">
+  	select count(*) from user
+  </select>
+  <select id="queryAll" resultMap="UserResultMap">
+  	select * from user u,dept d where u.d_id=d.d_id
+  </select>
+  <select id="queryAllByPage" resultMap="UserResultMap">
+  	select * from user u,dept d where u.d_id=d.d_id limit #{pageNo},#{pageSize} 
+  </select>
+  <update id="updatepassword" parameterType="User">
+  	update user set u_password = #{u_password} where u_id = #{u_id}
+  </update>
+  <insert id="add" parameterType="User">
+  	insert into user values(null,#{u_jobnum},#{u_name},#{u_sex},#{d.d_id},#{u_position},#{u_idcard},#{u_school},#{u_adress},#{u_phone},#{u_date},#{u_password},#{u_state})
+  </insert>
+  <select id="queryById" parameterType="int" resultMap="UserResultMap">
+  	select * from user u,dept d where u.d_id=d.d_id and u_id = #{u_id}
+  </select>
+  <update id="update" parameterType="User">
+  	update user set u_jobnum=#{u_jobnum},u_name=#{u_name},u_sex=#{u_sex},d_id=#{d.d_id},u_position=#{u_position},u_idcard=#{u_idcard},u_school=#{u_school},u_adress=#{u_adress},u_phone=#{u_phone},u_date=#{u_date},u_password = #{u_password},u_state=#{u_state} where u_id = #{u_id}
+  </update>
+  <delete id="delete" parameterType="int">
+  	delete from user where u_id=#{u_id}
+  </delete>
+  <!-- 条件查询   员工管理 -->
+  <select id="queryByReason" resultMap="UserResultMap">
+  	select * from user u,dept d where u.d_id=d.d_id 
+  	<if test="u_state!=-1">
+  		and u.u_state=#{u_state}
+  	</if>
+  	<if test="u_name!=null">
+  		and u.u_name=#{u_name}
+  	</if>
+  	limit #{pageNo},#{pageSize}
+  </select>
+  <select id="countByReason" resultType="int">
+  	select count(*) from user u where 1=1
+  	<if test="u_state!=-1">
+  		and u.u_state=#{u_state}
+  	</if>
+  	<if test="u_name!=null">
+  		and u.u_name=#{u_name}
+  	</if>
+  </select>
+</mapper>

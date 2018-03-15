@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.moneyrecord.dao.dao.MoneyRecordMapper">
+<resultMap type="MoneyRecord" id="MoneyRecordMap" autoMapping="true">
+	<id property="mr_id" column="mr_id"/>
+	<association property="m" javaType="Member" >
+		<id property="m_id" column="m_id"/>
+		<association property="mt" javaType="MemberType" >
+			<id property="mt_id" column="mt_id"/>
+		</association>
+		<association property="c" javaType="Customer" >
+			<id property="c_id" column="c_id"/>
+		</association>
+	</association>
+	<association property="u" javaType="User" >
+		<id property="u_id" column="u_id"/>
+	</association>
+</resultMap>
+	<insert id="add" parameterType="MoneyRecord">
+		insert into moneyrecord values(null,#{m.m_id},#{mr_paytype},#{mr_money},#{u.u_id},#{mr_date})
+	</insert>
+	<select id="queryAllByReason" resultMap="MoneyRecordMap">
+  	select * from moneyrecord mr,member m,membertype mt,customer c,user u where mr.m_id=m.m_id and m.mt_id=mt.mt_id and m.c_id=c.c_id and mr.u_id=u.u_id
+  		<if test="startdate!=null">
+			and mr.mr_date &gt;= #{startdate}
+		</if>
+		<if test="enddate!=null">
+			and mr.mr_date &lt;= #{enddate}
+		</if>
+		<if test="typenum!=null">
+			and m.m_cardnum=#{typenum}
+		</if>
+		limit #{pageNo},#{pageSize}
+  </select>
+  <select id="countByReason" resultType="int">
+  	select count(*) from moneyrecord mr,member m where mr.m_id = m.m_id
+		<if test="startdate!=null">
+			and mr.mr_date &gt;= #{startdate}
+		</if>
+		<if test="enddate!=null">
+			and mr.mr_date &lt;= #{enddate}
+		</if>
+		<if test="typenum!=null">
+			and m.m_cardnum=#{typenum}
+		</if>
+  </select>
+</mapper>

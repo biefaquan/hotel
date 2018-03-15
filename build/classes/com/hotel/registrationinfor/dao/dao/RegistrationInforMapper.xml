@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.registrationinfor.dao.dao.RegistrationInforMapper">
+<resultMap type="RegistrationInfor" id="RegistrationInforResultMap" autoMapping="true">
+	<id property="ri_id" column="ri_id"/>
+	<association property="r" javaType="Room" >
+		<id property="r_id" column="r_id"/>
+		<association property="rt" javaType="RoomType">
+			<id property="rt_id" column="rt_id"/>
+		</association>
+	</association>
+	<association property="c" javaType="Customer" >
+		<id property="c_id" column="c_id"/>
+	</association>
+	<association property="u" javaType="User" >
+		<id property="u_id" column="u_id"/>
+	</association>
+	<collection property="rclist" ofType="RegistrationCard">
+		<id property="rc_id" column="rc_id"/>
+		<association property="c" javaType="Customer">
+			<id property="c_id" column="c_id"/>
+		</association>
+	</collection>
+</resultMap>
+	<insert id="add" parameterType="RegistrationInfor"  useGeneratedKeys="true" keyProperty="ri_id">
+		insert into registrationinfor values(null,#{r.r_id},#{c.c_id},#{ri_typenum},#{ri_source},#{ri_keyway},#{ri_days},#{ri_opentime},#{ri_paytype},#{ri_depositfee},#{u.u_id},#{ri_allmoney},#{ri_reward},#{ri_state},#{ti_id},#{ri_endtime})
+	</insert>
+	<!-- 没有将rc加进来 -->
+	<select id="queryAll" resultMap="RegistrationInforResultMap">
+		select * from registrationinfor ri,room r,customer c,user u where ri.r_id=r.r_id and ri.c_id=c.c_id and ri.u_id=u.u_id and ri.ri_state=1
+	</select>
+	<!-- 所有的，根据时间和房号 -->
+	<select id="queryAllByReason" resultMap="RegistrationInforResultMap">
+		select * from registrationinfor ri,room r,roomtype rt,customer c,user u where ri.r_id=r.r_id and ri.c_id=c.c_id and ri.u_id=u.u_id and r.rt_id=rt.rt_id
+		<if test="starttime!=null and endtime==null">
+			and ri.ri_endtime &gt;= #{starttime}
+		</if>
+		<if test="endtime!=null and starttime==null">
+			and ri.ri_opentime &lt;=#{endtime}
+		</if>
+		<if test="starttime!=null and endtime!=null">
+			and not((ri.ri_endtime &lt; #{starttime}) or (ri.ri_opentime &gt; #{endtime} ))
+		</if>
+		<if test="roomnum!=0">
+			and r.r_roomnum=#{roomnum}
+		</if>
+		limit #{pageNo},#{pageSize}
+	</select>
+	<select id="countByReason" resultType="int">
+		select count(*) from registrationinfor ri,room r where ri.r_id = r.r_id
+		<if test="starttime!=null and endtime==null">
+			and ri_endtime &gt;= #{starttime}
+		</if>
+		<if test="endtime!=null and starttime==null">
+			and ri_opentime &lt;=#{endtime}
+		</if>
+		<if test="starttime!=null and endtime!=null">
+			and not((ri_endtime &lt; #{starttime}) or (ri_opentime &gt; #{endtime} ))
+		</if>
+		<if test="roomnum!=0">
+			and r.r_roomnum=#{roomnum}
+		</if>
+	</select>
+	<!-- 分页查询 -->
+	<select id="queryAllByPage" resultMap="RegistrationInforResultMap">
+		select * from registrationinfor ri,room r,roomtype rt,customer c,user u where ri.r_id=r.r_id and r.rt_id = rt.rt_id and ri.c_id=c.c_id and ri.u_id=u.u_id limit #{pageNo},#{pageSize}
+	</select>
+	<select id="count" resultType="int">
+		select count(*) from registrationinfor
+	</select>
+	<select id="queryById" resultMap="RegistrationInforResultMap">
+		select * from registrationinfor ri,room r,roomtype rt,customer c,user u where ri.r_id=r.r_id and r.rt_id = rt.rt_id and ri.c_id=c.c_id and ri.u_id=u.u_id and ri.ri_id=#{ri_id}
+	</select>
+	<update id="updatestate" parameterType="int">
+		update registrationinfor set ri_state=#{ri_state} where ri_id = #{ri_id}
+	</update>
+	<update id="update" parameterType="RegistrationInfor">
+		update registrationinfor set r_id = #{r.r_id},c_id=#{c.c_id},ri_typenum=#{ri_typenum},ri_source=#{ri_source},ri_keyway=#{ri_keyway},ri_days=#{ri_days},ri_opentime=#{ri_opentime},ri_paytype=#{ri_paytype},ri_depositfee=#{ri_depositfee},u_id=#{u.u_id},ri_allmoney=#{ri_allmoney},ri_reward=#{ri_reward},ri_state=#{ri_state},ti_id=#{ti_id},ri_endtime=#{ri_endtime} where ri_id=#{ri_id}
+	</update>
+	<!-- 客人界面，类型和来源条件查询 -->
+	<select id="queryAllDetail" resultMap="RegistrationInforResultMap">
+		select * from registrationinfor ri,room r,roomtype rt,customer c,user u where ri.r_id=r.r_id and ri.c_id=c.c_id and ri.u_id=u.u_id and r.rt_id=rt.rt_id
+		<if test="state==1">
+			and ri.ri_state=1
+		</if>
+		<if test="state==2">
+			and TIMESTAMPDIFF(DAY,ri.ri_endtime,curdate())=0 and ri.ri_state=1
+		</if>
+		<if test="state==3">
+			and ri.ri_state=0
+		</if>
+		<if test="state==4">
+			and ri.ri_paytype='挂账'
+		</if>
+		<if test="state==5">
+			and ri.ri_state=-1
+		</if>
+		<if test="state==6">
+			and TIMESTAMPDIFF(DAY,ri_endtime,curdate())>=1 and ri.ri_state=1
+		</if>
+		<if test="source!=-1">
+			and rt.rt_id=#{source}
+		</if>
+		limit #{pageNo},#{pageSize}
+	</select>
+	<select id="countDetail" resultType="int">
+		select count(*) from registrationinfor ri,room r,roomtype rt where ri.r_id=r.r_id  and r.rt_id=rt.rt_id
+		<if test="state==1">
+			and ri.ri_state=1
+		</if>
+		<if test="state==2">
+			and TIMESTAMPDIFF(DAY,ri.ri_endtime,curdate())=0 and ri.ri_state=1
+		</if>
+		<if test="state==3">
+			and ri.ri_state=0
+		</if>
+		<if test="state==4">
+			and ri.ri_paytype='挂账'
+		</if>
+		<if test="state==5">
+			and ri.ri_state=-1
+		</if>
+		<if test="state==6">
+			and TIMESTAMPDIFF(DAY,ri_endtime,curdate())>=1 and ri.ri_state=1
+		</if>
+		<if test="source!=-1">
+			and rt.rt_id=#{source}
+		</if>
+	</select>
+</mapper>

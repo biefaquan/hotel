@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.teamcard.dao.dao.TeamCardMapper">
+<resultMap type="TeamCard" id="TeamCardResultMap" autoMapping="true">
+	<id property="tc_id" column="tc_id"/>
+	<association property="c" javaType="Customer" >
+		<id property="c_id" column="c_id"/>
+	</association>
+	<association property="r" javaType="Room" >
+		<id property="r_id" column="r_id"/>
+	</association>
+	<association property="ti" javaType="TeamInfor" >
+		<id property="ti_id" column="ti_id"/>
+	</association>
+</resultMap>
+  <insert id="add" parameterType="TeamCard">
+  insert into teamcard values(null,#{c.c_id},#{r.r_id},#{tc_keyway},#{tc_opentime},#{tc_days},#{ti.ti_id},#{tc_money},#{tc_state})
+  </insert>
+  <select id="queryAll" resultMap="TeamCardResultMap">
+  	select * from teamcard tc,teaminfor ti,customer c,room r where tc.c_id=c.c_id and tc.r_id=r.r_id and tc.ti_id=ti.ti_id
+  </select>
+  <select id="queryById" resultMap="TeamCardResultMap">
+  	select * from teamcard tc,teaminfor ti,customer c,room r where tc.c_id=c.c_id and tc.r_id=r.r_id and tc.ti_id=ti.ti_id and tc.tc_id=#{tc_id} 
+  </select>
+  <select id="queryByTi_id" resultMap="TeamCardResultMap">
+  	select * from teamcard tc,teaminfor ti,customer c,room r where tc.c_id=c.c_id and tc.r_id=r.r_id and tc.ti_id=ti.ti_id and ti.ti_id=#{ti_id}
+  </select>
+  <select id="statecount" resultType="int">
+  	select count(*) from teamcard where tc_state=1 and ti_id=#{ti_id}
+  </select>
+  <update id="update" parameterType="TeamCard">
+  	update teamcard set c_id=#{c.c_id},r_id=#{r.r_id},tc_keyway=#{tc_keyway},tc_opentime=#{tc_opentime},tc_days=#{tc_days},ti_id=#{ti.ti_id},tc_money=#{tc_money},tc_state=#{tc_state} where tc_id=#{tc_id}
+  </update>
+  <delete id="delete" parameterType="int">
+  	delete from teamcard where tc_id=#{tc_id}
+  </delete>
+</mapper>

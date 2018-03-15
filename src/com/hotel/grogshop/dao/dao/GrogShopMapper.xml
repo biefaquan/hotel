@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.grogshop.dao.dao.GrogShopMapper">
+  <select id="query" resultType="GrogShop">
+  	select * from grogshop
+  </select>
+  <update id="update" parameterType="GrogShop">
+  	update grogshop set gs_name=#{gs_name },gs_linkman=#{gs_linkman},gs_phone=#{gs_phone},
+  	gs_fax=#{gs_fax},gs_address=#{gs_address},gs_introduction=#{gs_introduction} where gs_id=#{gs_id}
+  </update>
+</mapper>

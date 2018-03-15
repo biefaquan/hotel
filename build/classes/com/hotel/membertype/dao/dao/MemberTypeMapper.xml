@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.membertype.dao.dao.MemberTypeMapper">
+  <select id="queryAll" resultType="MemberType">
+  	select * from membertype 
+  </select>
+  <select id="queryById" parameterType="int" resultType="MemberType">
+  	select * from membertype where mt_id=#{mt_id}
+  </select>
+  <insert id="add" parameterType="MemberType">
+  	insert into membertype values(null,#{mt_name},#{mt_discountrate})
+  </insert>
+  <update id="update" parameterType="MemberType">
+  	update membertype set mt_name=#{mt_name},mt_discountrate=#{mt_discountrate} where mt_id=#{mt_id}
+  </update>
+  <delete id="delete" parameterType="int">
+  	delete from membertype where mt_id=#{mt_id}
+  </delete>
+</mapper>

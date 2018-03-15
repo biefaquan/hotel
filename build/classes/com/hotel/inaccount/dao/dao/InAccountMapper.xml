@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.inaccount.dao.dao.InAccountMapper">
+<resultMap type="InAccount" id="InAccountResultMap" autoMapping="true">
+	<id property="ia_id" column="ia_id"/>
+	<association property="r" javaType="Room" >
+		<id property="r_id" column="r_id"/>
+		<association property="rt" javaType="RoomType">
+			<id property="rt_id" column="rt_id"/>
+		</association>
+	</association>
+</resultMap>
+  <insert id="add" parameterType="InAccount">
+  	insert into inaccount values(null,#{r.r_id},#{ia_paytype},#{ia_source},#{ia_keyway},#{ia_money},#{ia_intime},#{ia_name})
+  </insert>
+  <select id="queryByRoomAndDate" parameterType="InAccount" resultType="InAccount">
+  	select * from inaccount where r_id=#{r.r_id} and ia_intime=#{ia_intime}
+  </select>
+  <select id="queryAll" resultMap="InAccountResultMap">
+  	select * from inaccount ia,room r,roomtype rt where ia.r_id=r.r_id and r.rt_id=rt.rt_id
+  </select>
+  <!-- 分页查询 -->
+  <select id="queryAllByPage" resultMap="InAccountResultMap">
+	select * from inaccount ia,room r,roomtype rt where ia.r_id=r.r_id and r.rt_id=rt.rt_id limit #{pageNo},#{pageSize}
+  </select>
+  <select id="count" resultType="int">
+	select count(*) from inaccount
+  </select>
+  <!-- 所有的，根据时间和房号 -->
+	<select id="queryAllByReason" resultMap="InAccountResultMap">
+		select * from inaccount ia,room r,roomtype rt where ia.r_id=r.r_id and r.rt_id=rt.rt_id
+		<if test="starttime!=null">
+			and ia.ia_intime &gt;= #{starttime}
+		</if>
+		<if test="endtime!=null">
+			and ia.ia_intime &lt;=#{endtime}
+		</if>
+		<if test="roomnum!=0">
+			and r.r_roomnum=#{roomnum}
+		</if>
+		limit #{pageNo},#{pageSize}
+	</select>
+	<select id="countByReason" resultType="int">
+		select count(*) from inaccount ia,room r where ia.r_id = r.r_id
+		<if test="starttime!=null">
+			and ia.ia_intime &gt;= #{starttime}
+		</if>
+		<if test="endtime!=null">
+			and ia.ia_intime &lt;=#{endtime}
+		</if>
+		<if test="roomnum!=0">
+			and r.r_roomnum=#{roomnum}
+		</if>
+	</select>
+</mapper>

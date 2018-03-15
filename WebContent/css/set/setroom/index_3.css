@@ -1,0 +1,41 @@
+/* ::::: http://www.jdd365.cn/styles/main.css ::::: */
+
+body { font-size: 12px; margin: 0px; padding: 0px; font-family: "Microsoft YaHei"; }
+body, html { height: 100%; width: 100%; }
+ul, li, p, span, h1, h2, h3, h4, dd, dl { margin: 0px; padding: 0px; }
+li { list-style-type: none; }
+input, button, select, textarea { color: rgb(51, 51, 51); outline: medium none; padding-left: 5px; }
+input:hover, select:hover, textarea:hover, .input_keynote { border-color: rgb(102, 175, 233) ! important; outline: 0px none; box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(102, 175, 233, 0.6); }
+em, address { font-style: normal; }
+.clrfix::after { clear: both; content: "."; display: block; height: 0px; visibility: hidden; }
+.clearfix::after { clear: both; content: " "; display: block; font-size: 0px; height: 0px; visibility: hidden; }
+.main { width: 100%; margin-left: 0px; display: inline; float: left; margin-bottom: 20px; }
+h1.room { width: 100%; float: left; border-bottom: 0px solid rgb(7, 136, 189); font-size: 20px; padding: 10px 0px 0px; line-height: 40px; }
+h1.room span { font-size: 12px; font-weight: lighter; padding-left: 20px; color: rgb(102, 102, 102); }
+ul.room { float: left; width: 100%; }
+ul.room li { width: 100%; float: left; margin-top: 10px; position: relative; }
+ul.room li .l { width: 6%; line-height: 40px; float: left; font-size: 12px; text-align: right; color: rgb(51, 51, 51); }
+ul.room li .r { float: left; background: rgb(239, 250, 254) none repeat scroll 0% 0%; border: 1px solid rgb(238, 238, 238); width: 90%; padding: 6px 5px; }
+ul.room li .r .lines { color: rgb(255, 255, 255); background: rgb(153, 153, 153) none repeat scroll 0% 0%; padding: 0px 10px; line-height: 28px; float: left; margin: 2px; cursor: pointer; }
+ul.room li .r .lines span { float: left; padding-left: 5px; padding-right: 10px; font-weight: lighter; white-space: nowrap; }
+ul.room li .r .lines em { background: transparent url('/hotel/img/roomrack/edit.png') no-repeat scroll 0% 0%; width: 11px; height: 11px; float: left; margin-left: 10px; margin-top: 8px; }
+ul.room li .r .lines em:hover {  }
+ul.room li .r .lines em.dell { background-position: 0px -16px; }
+ul.room li .r .lines em.edit { background-position: 0px 0px; }
+ul.room li .r .lines:hover { background: rgb(14, 149, 204) none repeat scroll 0% 0%; }
+ul.room li .r .lines.select { background: rgb(14, 149, 204) none repeat scroll 0% 0%; }
+ul.room li .r .lines.add { background: transparent none repeat scroll 0% 0%; }
+ul.room li .r .lines input.butns { background: rgb(112, 178, 54) none repeat scroll 0% 0%; padding: 0px 8px; line-height: 26px; height: 28px; overflow: hidden; float: left; border: 0px none; font-size: 22px; color: rgb(255, 255, 255); cursor: pointer; font-weight: bold; border-radius: 1px; }
+ul.room li .r .rfj { width: 90px; height: 60px; background: rgb(14, 149, 204) none repeat scroll 0% 0%; float: left; margin: 2px; display: inline; color: rgb(255, 255, 255); font-size: 12px; cursor: pointer; position: relative; }
+ul.room li .r .rfj:hover { background: rgb(238, 161, 43) none repeat scroll 0% 0%; }
+ul.room li .r .rfj.blue { background-position: 0px -319px; }
+ul.room li .r .rfj.gray { background-position: 0px -422px; }
+ul.room li .r .rfj .rom { font-size: 16px; width: 60px; float: left; line-height: 18px; padding: 8px; font-family: "Microsoft YaHei"; }
+ul.room li .r .rfj .type { width: 80px; float: left; padding-left: 8px; font-family: "Microsoft YaHei"; }
+ul.room li .r .rfj em { background: transparent url('/hotel/img/roomrack/edit.png') no-repeat scroll 0% 0%; width: 11px; height: 11px; float: left; margin-left: 10px; margin-top: 8px; position: absolute; display: none; }
+ul.room li .r .rfj em:hover {  }
+ul.room li .r .rfj em.dell { background-position: 0px -16px; right: 5px; top: 2px; }
+ul.room li .r .rfj em.edit { background-position: 0px 0px; top: 3px; right: 25px; }
+ul.room li .r .rfj:hover em { display: block; }
+ul.room li .r .rfj .adds { font-size: 40px; width: 100%; height: 60px; text-align: center; line-height: 60px; font-weight: bold; background: rgb(112, 178, 54) none repeat scroll 0% 0%; }
+ul.room li .r .rfj .adds:hover { background: rgb(238, 161, 43) none repeat scroll 0% 0%; }

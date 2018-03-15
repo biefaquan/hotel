@@ -1,0 +1,94 @@
+/* ::::: http://www.jdd365.cn/styles/main.css ::::: */
+
+body { font-size: 12px; margin: 0px; padding: 0px; font-family: "Microsoft YaHei"; }
+body, html { height: 100%; width: 100%; }
+ul, li, p, span, h1, h2, h3, h4, dd, dl { margin: 0px; padding: 0px; }
+a { color: rgb(51, 51, 51); text-decoration: none; }
+a:hover { color: rgb(255, 153, 0); }
+input, button, select, textarea { color: rgb(51, 51, 51); outline: medium none; padding-left: 5px; }
+input:hover, select:hover, textarea:hover, .input_keynote { border-color: rgb(102, 175, 233) ! important; outline: 0px none; box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(102, 175, 233, 0.6); }
+.clrfix::after { clear: both; content: "."; display: block; height: 0px; visibility: hidden; }
+.fontYaHei { font-family: "Hiragino Sans GB","Microsoft YaHei",黑体,宋体,sans-serif; }
+.clearfix::after { clear: both; content: " "; display: block; font-size: 0px; height: 0px; visibility: hidden; }
+.qtantj { background: rgb(0, 173, 239) none repeat scroll 0% 0% ! important; border: 1px solid rgb(0, 143, 199) ! important; font-size: 12px; font-weight: bold; color: rgb(255, 255, 255) ! important; cursor: pointer; height: 25px ! important; float: left; margin-right: 0px ! important; padding: 0px 10px ! important; width: auto ! important; }
+.qtantj:hover { background: rgb(8, 154, 234) none repeat scroll 0% 0% ! important; outline: 0px none; box-shadow: none; border: 1px solid rgb(7, 136, 190) ! important; }
+.qtantj:active { background: rgb(0, 173, 239) none repeat scroll 0% 0% ! important; border: 1px solid rgb(0, 143, 199) ! important; }
+table { width: 100%; border-top: 0px solid rgb(221, 221, 221); border-left: 1px solid rgb(221, 221, 221); float: left; }
+table th { font-size: 14px; border-bottom: 1px solid rgb(7, 137, 190); border-right: 1px solid rgb(102, 213, 255); height: 32px; background: rgb(0, 173, 239) none repeat scroll 0% 0%; color: rgb(255, 255, 255); }
+table tr { color: rgb(51, 51, 51); }
+table tr:hover { background: rgb(208, 242, 255) none repeat scroll 0% 0%; }
+table tr td { border-bottom: 1px solid rgb(221, 221, 221); border-right: 1px solid rgb(221, 221, 221); line-height: 28px; text-align: center; padding: 2px 5px; }
+table tr a { color: rgb(7, 136, 189); }
+table tr a:hover { text-decoration: underline; color: rgb(7, 136, 189); }
+.page { text-align: center; font-size: 12px; float: right; padding-top: 8px; }
+.page span { border: 1px solid rgb(221, 221, 221); margin: 1px; color: rgb(3, 108, 180); text-decoration: none; font-size: 12px; padding: 4px; cursor: pointer; }
+.page span.current { border: 1px solid rgb(0, 173, 239); padding: 4px 8px; color: rgb(255, 255, 255); background-color: rgb(0, 173, 239); }
+.page span.disabled { border-right: 1px solid rgb(221, 221, 221); color: rgb(221, 221, 221); background: rgb(255, 255, 255) none repeat scroll 0% 0%; }
+.ftt_search { width: 100%; float: left; margin: 10px 0px; font-size: 12px; color: rgb(51, 51, 51); }
+.ftt_search label { float: left; line-height: 24px; padding-right: 5px; }
+.ftt_search input, .ftt_search select { border: 1px solid rgb(221, 221, 221); padding-left: 5px; margin-right: 20px; padding-right: 0px; font-size: 12px; font-family: "Microsoft YaHei"; color: rgb(0, 0, 0); float: left; }
+.ftt_search input { width: 240px; height: 22px; line-height: 22px; }
+.ftt_search select { padding: 0px; height: 26px; line-height: 26px; }
+h1.report_h1 { width: 99%; float: left; border-bottom: 0px solid rgb(7, 136, 189); font-size: 20px; padding: 10px 0px 0px; line-height: 40px; }
+h1.report_h1 b { float: left; }
+h1.report_h1 b.rq { font-size: 12px; margin-left: 20px; display: inline; padding-top: 2px; float: right; font-weight: lighter; }
+.report_table { width: 99%; margin: 0px 0px 10px; border-top: 1px solid rgb(221, 221, 221); border-left: 1px solid rgb(221, 221, 221); color: rgb(51, 51, 51); }
+.report_table tr { color: rgb(51, 51, 51); }
+.report_table tr td { border-bottom: 1px solid rgb(221, 221, 221); border-right: 1px solid rgb(221, 221, 221); }
+table.report_table tr td.right { text-align: right; }
+.report_db { width: 99%; float: left; }
+/* ::::: http://www.jdd365.cn/styles/tch.css ::::: */
+
+/* ::::: http://www.jdd365.cn/Styles/jquery.datetimepicker.css ::::: */
+
+.xdsoft_datetimepicker { box-shadow: 0px 5px 15px -5px rgba(0, 0, 0, 0.506); background: rgb(255, 255, 255) none repeat scroll 0% 0%; border-width: 1px; border-style: solid; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); color: rgb(51, 51, 51); font-family: "Helvetica Neue","Helvetica","Arial",sans-serif; padding: 2px 8px 8px 0px; position: absolute; z-index: 9999; box-sizing: border-box; display: none; }
+.xdsoft_datetimepicker button { border: medium none ! important; }
+.xdsoft_noselect { -moz-user-select: none; }
+.xdsoft_noselect::-moz-selection { background: transparent none repeat scroll 0% 0%; }
+.xdsoft_datetimepicker * { box-sizing: border-box; padding: 0px; margin: 0px; }
+.xdsoft_datetimepicker .xdsoft_datepicker, .xdsoft_datetimepicker .xdsoft_timepicker { display: none; }
+.xdsoft_datetimepicker .xdsoft_datepicker.active, .xdsoft_datetimepicker .xdsoft_timepicker.active { display: block; }
+.xdsoft_datetimepicker .xdsoft_datepicker { width: 224px; float: left; margin-left: 8px; }
+.xdsoft_datetimepicker .xdsoft_timepicker { width: 58px; float: left; text-align: center; margin-left: 8px; margin-top: 0px; }
+.xdsoft_datetimepicker .xdsoft_datepicker.active + .xdsoft_timepicker { margin-top: 8px; margin-bottom: 3px; }
+.xdsoft_datetimepicker .xdsoft_mounthpicker { position: relative; text-align: center; }
+.xdsoft_datetimepicker .xdsoft_prev, .xdsoft_datetimepicker .xdsoft_next, .xdsoft_datetimepicker .xdsoft_today_button { background-image: url('undefined'); }
+.xdsoft_datetimepicker .xdsoft_prev { float: left; background-position: -20px 0px; }
+.xdsoft_datetimepicker .xdsoft_today_button { float: left; background-position: -70px 0px; margin-left: 5px; }
+.xdsoft_datetimepicker .xdsoft_next { float: right; background-position: 0px 0px; }
+.xdsoft_datetimepicker .xdsoft_next:active, .xdsoft_datetimepicker .xdsoft_prev:active {  }
+.xdsoft_datetimepicker .xdsoft_next, .xdsoft_datetimepicker .xdsoft_prev, .xdsoft_datetimepicker .xdsoft_today_button { background-color: transparent; background-repeat: no-repeat; border: 0px none currentcolor; cursor: pointer; display: block; height: 30px; opacity: 0.5; outline: medium none currentcolor; overflow: hidden; padding: 0px; position: relative; text-indent: 100%; white-space: nowrap; width: 20px; }
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_prev, .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_next { float: none; background-position: -40px -15px; height: 15px; width: 30px; display: block; margin-left: 14px; margin-top: 7px; }
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_prev { background-position: -40px 0px; margin-bottom: 7px; margin-top: 0px; }
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box { height: 151px; overflow: hidden; border-bottom: 1px solid rgb(221, 221, 221); }
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div { background: rgb(245, 245, 245) none repeat scroll 0% 0%; border-top: 1px solid rgb(221, 221, 221); color: rgb(102, 102, 102); font-size: 12px; text-align: center; border-collapse: collapse; cursor: pointer; border-bottom-width: 0px; height: 25px; line-height: 25px; }
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div:first-child { border-top-width: 0px; }
+.xdsoft_datetimepicker .xdsoft_today_button:hover, .xdsoft_datetimepicker .xdsoft_next:hover, .xdsoft_datetimepicker .xdsoft_prev:hover { opacity: 1; }
+.xdsoft_datetimepicker .xdsoft_label { display: inline; position: relative; z-index: 9999; margin: 0px; padding: 5px 3px; font-size: 14px; line-height: 20px; font-weight: bold; background-color: rgb(255, 255, 255); float: left; width: 182px; text-align: center; cursor: pointer; }
+.xdsoft_datetimepicker .xdsoft_label:hover { text-decoration: underline; }
+.xdsoft_datetimepicker .xdsoft_label > .xdsoft_select { border: 1px solid rgb(204, 204, 204); position: absolute; right: 0px; top: 30px; z-index: 101; display: none; background: rgb(255, 255, 255) none repeat scroll 0% 0%; max-height: 160px; overflow-y: hidden; }
+.xdsoft_datetimepicker .xdsoft_label > .xdsoft_select.xdsoft_monthselect { right: -7px; }
+.xdsoft_datetimepicker .xdsoft_label > .xdsoft_select.xdsoft_yearselect { right: 2px; }
+.xdsoft_datetimepicker .xdsoft_label > .xdsoft_select > div > .xdsoft_option:hover { color: rgb(255, 255, 255); background: rgb(255, 128, 0) none repeat scroll 0% 0%; }
+.xdsoft_datetimepicker .xdsoft_label > .xdsoft_select > div > .xdsoft_option { padding: 2px 10px 2px 5px; }
+.xdsoft_datetimepicker .xdsoft_label > .xdsoft_select > div > .xdsoft_option.xdsoft_current { background: rgb(51, 170, 255) none repeat scroll 0% 0%; box-shadow: 0px 1px 3px 0px rgb(23, 143, 229) inset; color: rgb(255, 255, 255); font-weight: 700; }
+.xdsoft_datetimepicker .xdsoft_month { width: 90px; text-align: right; }
+.xdsoft_datetimepicker .xdsoft_calendar { clear: both; }
+.xdsoft_datetimepicker .xdsoft_year { width: 56px; }
+.xdsoft_datetimepicker .xdsoft_calendar table { border-collapse: collapse; width: 100%; }
+.xdsoft_datetimepicker .xdsoft_calendar td > div { padding-right: 5px; }
+.xdsoft_datetimepicker .xdsoft_calendar th { height: 25px; }
+.xdsoft_datetimepicker .xdsoft_calendar td, .xdsoft_datetimepicker .xdsoft_calendar th { width: 14.2857%; background: rgb(245, 245, 245) none repeat scroll 0% 0%; border: 1px solid rgb(221, 221, 221); color: rgb(102, 102, 102); font-size: 12px; text-align: right; padding: 0px; border-collapse: collapse; cursor: pointer; height: 25px; }
+.xdsoft_datetimepicker .xdsoft_calendar th { background: rgb(241, 241, 241) none repeat scroll 0% 0%; }
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_today { color: rgb(51, 170, 255); }
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_default, .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_current, .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div.xdsoft_current { background: rgb(51, 170, 255) none repeat scroll 0% 0%; box-shadow: 0px 1px 3px 0px rgb(23, 143, 229) inset; color: rgb(255, 255, 255); font-weight: 700; }
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_other_month, .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_disabled, .xdsoft_datetimepicker .xdsoft_time_box > div > div.xdsoft_disabled { opacity: 0.5; }
+.xdsoft_datetimepicker .xdsoft_calendar td:hover, .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div:hover { color: rgb(255, 255, 255) ! important; background: rgb(255, 128, 0) none repeat scroll 0% 0% ! important; box-shadow: none ! important; }
+.xdsoft_datetimepicker .xdsoft_calendar th { font-weight: 700; text-align: center; color: rgb(153, 153, 153); cursor: default; }
+.xdsoft_time_box { position: relative; border: 1px solid rgb(204, 204, 204); }
+.xdsoft_scrollbar > .xdsoft_scroller { background: rgb(204, 204, 204) none repeat scroll 0% 0% ! important; height: 20px; border-radius: 3px; }
+.xdsoft_scrollbar { position: absolute; width: 7px; right: 0px; top: 0px; bottom: 0px; cursor: pointer; }
+.xdsoft_scroller_box { position: relative; }
+table#printTable { border-top: 1px solid rgb(0, 0, 0); border-right: 1px solid rgb(0, 0, 0); font-size: 12px; }
+table#printTable td { border-bottom: 1px solid rgb(0, 0, 0); border-left: 1px solid rgb(0, 0, 0); }
+table#printTable th { border-bottom: 1px solid rgb(0, 0, 0); border-left: 1px solid rgb(0, 0, 0); }

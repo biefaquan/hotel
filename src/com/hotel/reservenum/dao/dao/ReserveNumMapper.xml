@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hotel.reservenum.dao.dao.ReserveNumMapper">
+<resultMap type="ReserveNum" id="ReserveNumResultMap" autoMapping="true">
+	<id property="rn_id" column="rn_id"/>
+	<association property="r" javaType="Room" >
+		<id property="r_id" column="r_id"/>
+		<association property="rt" javaType="RoomType" >
+			<id property="rt_id" column="rt_id"/>
+		</association>
+	</association>
+	<association property="rr" javaType="ReserveRoom">
+		<id property="rr_id" column="rr_id"/>
+	</association>
+</resultMap>
+	<insert id="add" parameterType="ReserveNum">
+		insert into reservenum values(null,#{r.r_id},#{rr.rr_id})
+	</insert>
+	<delete id="deleteByR_id" parameterType="int">
+		delete from reservenum where r_id=#{r_id}
+	</delete>
+	<select id="queryByRr_id" resultMap="ReserveNumResultMap">
+		select * from reservenum rn,room r,roomtype rt where rn.r_id=r.r_id and r.rt_id=rt.rt_id and rn.rr_id=#{rr_id}
+	</select>
+</mapper>
